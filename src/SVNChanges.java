@@ -1,32 +1,14 @@
-
-
-import org.tmatesoft.svn.cli.svn.SVNUpdateCommand;
 import org.tmatesoft.svn.core.*;
 import org.tmatesoft.svn.core.auth.ISVNAuthenticationManager;
-import org.tmatesoft.svn.core.internal.wc2.ng.SvnNgCheckout;
-import org.tmatesoft.svn.core.io.*;
 import org.tmatesoft.svn.core.wc.*;
-import org.tmatesoft.svn.core.wc2.*;
-
-
 import java.io.File;
-import java.io.OutputStream;
 import java.net.MalformedURLException;
-import java.time.LocalDate;
 import java.util.*;
-
-
-import org.tmatesoft.svn.core.internal.io.fs.FSRepositoryFactory;
-import org.tmatesoft.svn.core.internal.io.dav.DAVRepositoryFactory;
 import org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryFactoryImpl;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.io.SVNRepository;
 import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 import org.tmatesoft.svn.core.SVNException;
-
-import javax.tools.Diagnostic;
-
-import static org.apache.subversion.javahl.types.Revision.HEAD;
 
 
 public class SVNChanges {
@@ -40,7 +22,7 @@ public class SVNChanges {
       String url = "svn://who-dev.essi.upc.edu/metadata-repository/";
       String name = "mr-service";
       String password = "hatre5EpSVN";
-      File gg = new File("C:/Users/Victor/Desktop/metadata-repository_prueba");
+      File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba");
       SVNRepository repository = null;
       long startRevision = 0;
       long endRevision = -1; //HEAD (the latest) revision
@@ -56,13 +38,15 @@ public class SVNChanges {
         System.exit(1);
     }
     //work with the repository
+
+
       SVNClientManager ourClientManager = SVNClientManager.newInstance(null, repository.getAuthenticationManager());
       SVNUpdateClient updateClient = ourClientManager.getUpdateClient();
       updateClient.setIgnoreExternals(false);
-      updateClient.doCheckout(SVNURL.parseURIEncoded(url), gg,SVNRevision.HEAD,SVNRevision.HEAD, true);
+      updateClient.doCheckout(SVNURL.parseURIEncoded(url),Repository,SVNRevision.HEAD,SVNRevision.HEAD, true);
 
 
-      //Aqui podemos mirar todos los cambios que han ocurrido
+      //Aqui vemos todos los cambios que han ocurrido
       Collection logEntries = null;
       logEntries = repository.log( new String[] { "" } , null , startRevision , endRevision , true , true );
       for (Iterator entries = logEntries.iterator( ); entries.hasNext( ); ) {
