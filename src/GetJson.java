@@ -8,11 +8,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.tmatesoft.svn.core.auth.SVNPasswordAuthentication;
-import org.tmatesoft.svn.core.internal.wc16.SVNCommitClient16;
-import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
-import org.tmatesoft.svn.core.SVNURL;
-import org.tmatesoft.svn.core.SVNException;
 
 public class GetJson {
 
