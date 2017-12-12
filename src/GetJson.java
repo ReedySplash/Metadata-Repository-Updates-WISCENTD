@@ -14,7 +14,7 @@ import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.SVNException;
 
-public class Main {
+public class GetJson {
 
     public static void main(String[] args) throws Exception
     {

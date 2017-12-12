@@ -1,4 +1,4 @@
-package example;
+
 
 import org.tmatesoft.svn.cli.svn.SVNUpdateCommand;
 import org.tmatesoft.svn.core.*;
@@ -29,7 +29,7 @@ import javax.tools.Diagnostic;
 import static org.apache.subversion.javahl.types.Revision.HEAD;
 
 
-public class HelloWorld {
+public class SVNChanges {
 
 
   public static void main(String[] argv) throws MalformedURLException, SVNException {
