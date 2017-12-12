@@ -1,5 +1,4 @@
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
-
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
@@ -11,7 +10,7 @@ import java.net.URLConnection;
 
 public class GetJson {
 
-    public static void main(String[] args) throws Exception
+    /*public static void main(String[] args) throws Exception
     {
         URL url = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
         URLConnection uc = url.openConnection();
@@ -31,6 +30,6 @@ public class GetJson {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }
