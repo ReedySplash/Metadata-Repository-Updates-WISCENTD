@@ -38,6 +38,145 @@ public class SVNChanges {
     }
 
 
+
+    //Org Unit Groups
+    public void UpdateOrgbyCountry() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-groups/oug-by-country");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/org-unit-groups/oug-by-country","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+    public void UpdateOrgbyProgram() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-groups/oug-by-program");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/org-unit-groups/oug-by-program","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+    public void UpdateOrgforAssignment() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-groups/oug-for-assignment");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/org-unit-groups/oug-for-assignment","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+    public void UpdateOrgGeneral() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-groups/oug-general");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/org-unit-groups/oug-general","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+
+
+    //Shape Files Update
+    public void UpdateShapeFilesDetails() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/shape-files/optimized");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+    public void UpdateShapeOptimized() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/shape-files/detailed");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+
+
+    //Common Data Elements
+    public void UpdateCommonDataElements() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+
+    //Dashoard
+    public void UpdateDashboards() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+    //Indicators
+    public void UpdateIndictors() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+
+
+    //Data Collection Forms
+    public void UpdateDataSets() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/data-collection-forms/datasets");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+    public void UpdateProgramsWoRegistration() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/data-collection-forms/programs-wo-registration");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+    public void UpdateProgramsWRegistration() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+
+    //General
+    public void UpdateAttributes() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+    public void UpdateCategoryCombinations() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+    public void UpdateValidationRules() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
+
+    //User Management
+    public void UpdateUserGroups() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+    public void UpdateUserRoles() throws IOException, SVNException {
+        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
+        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global","mr-service","hatre5EpSVN",Repository,url_aux,"vmurciano","Vict0r2017#");
+    }
+
+
+
     public void UpdateOrgUnitLevel1() throws IOException, SVNException {
         File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
@@ -45,6 +184,9 @@ public class SVNChanges {
     }
 
 
+
+
+    //UPDATE FOR ORG_UNIT_LVLs
     public void UpdateOrgUnitLevel2() throws IOException, SVNException {
         File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/2-who-regions");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
