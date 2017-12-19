@@ -47,5 +47,7 @@
     <orderEntry type="library" name="antlr-runtime-3.4" level="project" />
     <orderEntry type="library" name="javax.json-1.0.41" level="project" />
     <orderEntry type="library" name="javax.json-api-1.01" level="project" />
+    <orderEntry type="library" name="joda-time-2.9.9" level="project" />
+    <orderEntry type="library" name="javax.json-1.0.4" level="project" />
   </component>
 </module>
