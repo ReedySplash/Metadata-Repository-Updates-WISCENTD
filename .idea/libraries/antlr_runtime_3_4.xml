@@ -17,6 +17,7 @@
       <root url="jar://$USER_HOME$/Downloads/org.tmatesoft.svn_1.9.0.standalone/svnkit-1.9.0/lib/svnkit-cli-1.9.0.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/org.tmatesoft.svn_1.9.0.standalone/svnkit-1.9.0/lib/svnkit-javahl16-1.9.0.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/org.tmatesoft.svn_1.9.0.standalone/svnkit-1.9.0/lib/trilead-ssh2-1.0.0-build221.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/org.tmatesoft.svn_1.9.0.standalone.zip!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Downloads/org.tmatesoft.svn_1.9.0.standalone/svnkit-1.9.0/lib/svnkit-javahl16-1.9.0-javadoc.jar!/" />

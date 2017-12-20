@@ -1,0 +1,71 @@
+<component name="libraryTable">
+  <library name="antlr-runtime-3.41">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/antlr-runtime-3.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/antlr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-beanutils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-chain.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-digester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-fileupload.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-fileupload_2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io_2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-validator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/FastInoset.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/freemarker.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gmbal-api-only.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ha-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.annotation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.json-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.json-api-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-impl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-xjc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxws-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxws-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxws-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jna-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jna-platform-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/joda-time-2.9.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.connector-factory-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.core-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.pageant-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.sshagent-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.svnkit-trilead-ssh2-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.usocket-jna-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.usocket-nc-0.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsr181-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/management-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mimepull.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ognl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/oro.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/policy.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/saaj-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/saaj-impl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sequence-library-1.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sqljet-1.1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax-ex.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax2-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/streambuffer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnkit-1.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnkit-cli-1.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnkit-javahl16-1.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/trilead-ssh2-1.0.0-build221.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/woodstox-core-asl.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/svnkit-javahl16-1.9.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnkit-cli-1.9.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnkit-javahl16-1.9.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

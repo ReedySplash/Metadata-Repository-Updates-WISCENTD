@@ -198,7 +198,7 @@ public class SVNChanges {
 
 
     public void UpdateOrgUnitLevel1() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:1&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global",Repository,url_aux,"/1-who-global.json");
     }
@@ -208,13 +208,13 @@ public class SVNChanges {
 
     //UPDATE FOR ORG_UNIT_LVLs
     public void UpdateOrgUnitLevel2() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/2-who-regions");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/2-who-regions");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:2&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/2-who-regions",Repository,url_aux,"/2-who-regions.json");
     }
 
     public void UpdateOrgUnitLevel3() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/3-who-member-states");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/3-who-member-states");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:3&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/3-who-member-states",Repository,url_aux,"/3-who-member-states.json");
 
@@ -222,32 +222,32 @@ public class SVNChanges {
     }
 
     public void UpdateOrgUnitLevel4() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/4-level1");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/4-level1");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:4&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/4-level1",Repository,url_aux,"/4-level1.json");
     }
 
     public void UpdateOrgUnitLevel5() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/5-level2");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/5-level2");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:5&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/5-level2",Repository,url_aux,"/5-level2.json");
     }
 
     public void UpdateOrgUnitLevel6() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/6-level3");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/6-level3");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:6&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/6-level3",Repository,url_aux,"/6-level3.json");
     }
 
 
     public void UpdateOrgUnitLevel7() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/7-level4");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/7-level4");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:7&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/7-level4",Repository,url_aux,"/7-level4.json");
     }
 
     public void UpdateOrgUnitLevel8() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/8-level8");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/8-level8");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:8&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/8-level8",Repository,url_aux,"/8-level8.json");
     }
@@ -332,9 +332,9 @@ public class SVNChanges {
             for (int i = 0; i < hola.size(); ++i ) {
                 JsonObject hola2 = hola.getJsonObject(i);
                 System.out.printf("Fecha obtenida del Json: ");
-                System.out.println(obj.getString("lastUpdated"));
+                System.out.println(hola2.getString("lastUpdated"));
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
-                Date date2 = formatter.parse(obj.getString("lastUpdated").replaceAll("Z$", "+0000"));
+                Date date2 = formatter.parse(hola2.getString("lastUpdated").replaceAll("Z$", "+0000"));
                 if (date2.after(lastUpdate))  {
                     actualizar = true;
                     break;
@@ -342,7 +342,7 @@ public class SVNChanges {
                 //System.out.println(date2);
             }
 
-            if (actualizar) {
+            if (!actualizar) {
                 URLConnection uc2= DHIS2url.openConnection();
                 uc2.setRequestProperty ("Authorization", basicAuth);
                 InputStream in2 = uc2.getInputStream();
