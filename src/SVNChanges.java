@@ -1,3 +1,4 @@
+import com.sun.org.apache.regexp.internal.RE;
 import org.tmatesoft.svn.core.*;
 import org.tmatesoft.svn.core.auth.ISVNAuthenticationManager;
 import org.tmatesoft.svn.core.wc.*;
@@ -60,7 +61,7 @@ public class SVNChanges {
 
 
     //Org Unit Groups
-    public void UpdateOrgbyCountry() throws IOException, SVNException {
+   /* public void UpdateOrgbyCountry() throws IOException, SVNException {
         File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-groups/oug-by-country");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-groups/oug-by-country",Repository,url_aux,null);
@@ -194,70 +195,66 @@ public class SVNChanges {
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/user-management/user-roles",Repository,url_aux,null);
     }
+*/
 
-
-
+    //UPDATE FOR ORG_UNIT_LVLs
     public void UpdateOrgUnitLevel1() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/1-who-global");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/1-who-global");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:1&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global",Repository,url_aux,"/1-who-global.json");
     }
 
 
-
-
-    //UPDATE FOR ORG_UNIT_LVLs
     public void UpdateOrgUnitLevel2() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/2-who-regions");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/2-who-regions");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:2&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/2-who-regions",Repository,url_aux,"/2-who-regions.json");
     }
 
     public void UpdateOrgUnitLevel3() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/3-who-member-states");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/3-who-member-states");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:3&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/3-who-member-states",Repository,url_aux,"/3-who-member-states.json");
 
 
-    }
+    } //UPDATE FOR ORG_UNIT_LVLs
 
     public void UpdateOrgUnitLevel4() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/4-level1");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/4-level1");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:4&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/4-level1",Repository,url_aux,"/4-level1.json");
     }
 
     public void UpdateOrgUnitLevel5() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/5-level2");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/5-level2");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:5&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/5-level2",Repository,url_aux,"/5-level2.json");
     }
 
     public void UpdateOrgUnitLevel6() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/6-level3");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/6-level3");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:6&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/6-level3",Repository,url_aux,"/6-level3.json");
     }
 
 
     public void UpdateOrgUnitLevel7() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/7-level4");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/7-level4");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:7&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/7-level4",Repository,url_aux,"/7-level4.json");
     }
 
     public void UpdateOrgUnitLevel8() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository_prueba/org-unit-tree/org-unit-levels/8-level8");
+        File Repository = new File("C:/Users/Víctor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/8-level8");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnits?fields=:all&filter=level:eq:8&paging=false");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/8-level8",Repository,url_aux,"/8-level8.json");
     }
 
-    public void UpdateALLSVN() throws IOException, SVNException {
+    /*public void UpdateALLSVN() throws IOException, SVNException {
         File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/");
         URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
         UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/",Repository,url_aux,null);
-    }
-
+    }*/
 
 
     public void UpdateGeneralSVN (String url, File Repository, URL DHIS2url, String json_name) throws SVNException, IOException {
@@ -283,8 +280,6 @@ public class SVNChanges {
         updateClient.doCheckout(SVNURL.parseURIEncoded(url),Repository,SVNRevision.HEAD,SVNRevision.HEAD,true);
 
         Date lastUpdate = new Date();
-
-
         Collection logEntries = null;
         logEntries = repository.log( new String[] { "" } , null , startRevision , endRevision , true , true );
         for (Iterator entries = logEntries.iterator( ); entries.hasNext( );) {
@@ -293,32 +288,12 @@ public class SVNChanges {
             System.out.println("revision: " + logEntry.getRevision());
             System.out.println("date: " + logEntry.getDate());
             lastUpdate = logEntry.getDate();
-            System.out.println("log message: " + logEntry.getMessage());
-
-
-       /*     if (logEntry.getChangedPaths().size() > 0) {
-                System.out.println();
-                System.out.println("changed paths:");
-                Set changedPathsSet = logEntry.getChangedPaths().keySet();
-
-                for (Iterator changedPaths = changedPathsSet.iterator(); changedPaths.hasNext(); ) {
-                    SVNLogEntryPath entryPath = (SVNLogEntryPath) logEntry.getChangedPaths().get(changedPaths.next());
-                    System.out.println(" "
-                            + entryPath.getType()
-                            + " "
-                            + entryPath.getPath()
-                            + ((entryPath.getCopyPath() != null) ? " (from  "
-                            + entryPath.getCopyPath() + " revision "
-                            + entryPath.getCopyRevision() + ")" : ""));
-                }
-            }
-        */
         }
 
 
         URLConnection uc = DHIS2url.openConnection();
         String userpass = "vmurciano" + ":" + "Vict0r2017#";
-        String basicAuth = "Basic " + new String(new Base64().encode(userpass.getBytes()));
+        String basicAuth = "Basic " + Base64.encode(userpass.getBytes());
         uc.setRequestProperty ("Authorization", basicAuth);
         InputStream in = uc.getInputStream();
 
@@ -351,19 +326,24 @@ public class SVNChanges {
                 OutputStream outputStream = new FileOutputStream(Repo_aux); // path y nombre del nuevo fichero creado
                 byte[] b = new byte[2048];
                 int longitud;
-
                 while ((longitud = in2.read(b)) != -1) {
                     outputStream.write(b, 0, longitud);
                 }
+
+                /*File[] repos = new File[1];
+                String file_aux = Repository.toString();
+                file_aux = file_aux + json_name;
+                File repos_aux = new File(file_aux);
+                repos[0] = repos_aux;
+                //SVNCommitClient commitClient = ourClientManager.getCommitClient();
+                //commitClient.doCommit(repos,true,"Update",true,true);*/
 
             }
             //Date LastUpdate3 = formatt;
             System.out.printf("Fecha obtenida del SVN: ");
             System.out.println(lastUpdate);
             System.out.println("-----------");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
