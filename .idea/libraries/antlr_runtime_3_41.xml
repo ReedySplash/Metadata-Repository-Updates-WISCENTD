@@ -28,7 +28,6 @@
       <root url="jar://$PROJECT_DIR$/lib/jaxws-tools.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jna-4.1.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jna-platform-4.1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/joda-time-2.9.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.connector-factory-0.0.7.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.core-0.0.7.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jsch.agentproxy.pageant-0.0.7.jar!/" />

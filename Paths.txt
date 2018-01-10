@@ -1,0 +1,54 @@
+OrgUnitLevelsStructure
+NameInJs: organisationUnitLevels
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels
+UrlDHIS2: 8081/api/organisationUnitLevels?fields=:all&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels
+#######################################################################
+UpdateOrgUnitLevel1
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:1&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/1-who-global
+#######################################################################
+UpdateOrgUnitLevel2
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:2&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/2-who-regions
+#######################################################################
+UpdateOrgUnitLevel3
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:3&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/3-who-member-states
+#######################################################################
+UpdateOrgUnitLevel4
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:4&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/4-level1
+#######################################################################
+UpdateOrgUnitLevel5
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:5&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/5-level2
+#######################################################################
+UpdateOrgUnitLevel6
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:6&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/6-level3
+#######################################################################
+UpdateOrgUnitLevel7
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:7&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/7-level4
+#######################################################################
+UpdateOrgUnitLevel8
+NameInJs: organisationUnits
+PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels/
+UrlDHIS2: 8081/api/organisationUnits?fields=:all&filter=level:eq:8&paging=false
+UrlSvnRe: svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/org-unit-levels/8-level8
+#######################################################################
