@@ -22,22 +22,23 @@ import java.net.URLConnection;
 public class SVNChanges {
 
     private ArrayList<String> Paths = null;
+    private ArrayList<String> SVNCredentials = null;
 
 
     public static void main(String[] argv) throws IOException, SVNException {
 
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
-        prueba.UpdateOrgUniteStructure();
+       // prueba.UpdateOrgUniteStructure();
         prueba.UpdateOrgUnitLevel1();
-        prueba.UpdateOrgUnitLevel2();
+        /*prueba.UpdateOrgUnitLevel2();
         prueba.UpdateOrgUnitLevel3();
         prueba.UpdateOrgUnitLevel4();
         prueba.UpdateOrgUnitLevel5();
         prueba.UpdateOrgUnitLevel6();
         prueba.UpdateOrgUnitLevel7();
         prueba.UpdateOrgUnitLevel8();
-        /*
+
         prueba.UpdateAttributes();
         prueba.UpdateCategoryCombinations();
         prueba.UpdateCommonDataElements();
@@ -231,7 +232,7 @@ public class SVNChanges {
         Paths = GetPaths("UpdateOrgUnitLevel3");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 3));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(("http://who-dev.essi.upc.edu:"+Paths.get(2)));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/3-who-member-states.json");
     }
 
@@ -290,7 +291,6 @@ public class SVNChanges {
         boolean actualizar = false;
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
             JsonObject obj = rdr.readObject();
-            System.out.println("----------- ");
             JsonArray OrgLevels = obj.getJsonArray("organisationUnitLevels");
             for (int i = 0; i < OrgLevels.size(); ++i) {
                 JsonObject level = OrgLevels.getJsonObject(i);
@@ -305,13 +305,17 @@ public class SVNChanges {
 
 
 
-    private static ArrayList<String> GetPaths(String Type) throws IOException {
+    private ArrayList<String> GetPaths(String Type) throws IOException {
         String cadena;
         boolean Found = false;
         ArrayList<String> Paths = new ArrayList<>(3);
         FileReader f = new FileReader("Paths.txt");
         BufferedReader b = new BufferedReader(f);
-        while((cadena = b.readLine())!=null && !Found) {
+        this.SVNCredentials = new ArrayList<>(2);
+        b.readLine();
+        this.SVNCredentials.add(b.readLine().substring(10));
+        this.SVNCredentials.add(b.readLine().substring(10));
+        while((cadena = b.readLine())!= null && !Found) {
             if (Objects.equals(cadena, Type)) {
                 Paths.add(b.readLine().substring(10));
                 Paths.add(b.readLine().substring(10));
@@ -326,13 +330,6 @@ public class SVNChanges {
 
 
 
-
-
-
-
-
-
-
     private void UpdateGeneralSVN(String url, File Repository, URL DHIS2url, String json_name) throws SVNException, IOException {
 
         //CONEXION A SVN
@@ -344,7 +341,7 @@ public class SVNChanges {
         try {
             SVNRepositoryFactoryImpl.setup();
             repository = SVNRepositoryFactory.create(SVNURL.parseURIEncoded(url));
-            ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager("mr-service", "hatre5EpSVN");
+            ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager(this.SVNCredentials.get(0), this.SVNCredentials.get(1));
             repository.setAuthenticationManager(authManager);
         } catch (SVNException e) {
             e.printStackTrace();
@@ -361,9 +358,6 @@ public class SVNChanges {
         logEntries = repository.log( new String[] { "" } , null , startRevision , endRevision , true , true );
         for (Iterator entries = logEntries.iterator( ); entries.hasNext( );) {
             SVNLogEntry logEntry = (SVNLogEntry) entries.next();
-            System.out.println("---------------------------------------------");
-            System.out.println("revision: " + logEntry.getRevision());
-            System.out.println("date: " + logEntry.getDate());
             lastUpdate = logEntry.getDate();
         }
 
@@ -379,15 +373,12 @@ public class SVNChanges {
         try (InputStream is = in;
              JsonReader rdr = Json.createReader(is)) {
             JsonObject obj = rdr.readObject();
-            System.out.println("----------- ");
             JsonArray hola = obj.getJsonArray(Paths.get(0));
             for (int i = 0; i < hola.size(); ++i ) {
                 JsonObject hola2 = hola.getJsonObject(i);
-                System.out.printf("Fecha obtenida del Json: ");
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
                 Date date2 = formatter.parse(hola2.getString("lastUpdated").replaceAll("Z$", "+0000"));
-                System.out.println(date2);
-                if (date2.after(lastUpdate))  {
+                if (date2.before(lastUpdate))  {
                     actualizar = true;
                     break;
                 }
@@ -404,14 +395,16 @@ public class SVNChanges {
                 while ((longitud = in2.read(b)) != -1) {
                     outputStream.write(b, 0, longitud);
                 }
+
                 //Commit del fichero Json que acabamos de crear
-                File[] repos = new File[1];
+                File[] repos = new File[2];
                 String file_aux = Repository.toString();
+                repos[0] = new File(file_aux);
                 file_aux = file_aux + json_name;
                 File repos_aux = new File(file_aux);
-                repos[0] = repos_aux;
+                repos[1] = repos_aux;
                 //SVNCommitClient commitClient = ourClientManager.getCommitClient();
-                //commitClient.doCommit(repos,true,"Update",true,true);*/
+                //commitClient.doImport(repos[0],SVNURL.parseURIEncoded(url),"Update",false,false);
             }
             System.out.printf("Fecha obtenida del SVN: ");
             System.out.println(lastUpdate);

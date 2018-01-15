@@ -1,3 +1,7 @@
+SVNcredentials
+userName: mr-service
+password: hatre5EpSVN
+
 OrgUnitLevelsStructure
 NameInJs: organisationUnitLevels
 PathFile: C:/Users/Victor/Desktop/metadata-repository/org-unit-tree/org-unit-levels
