@@ -21,16 +21,17 @@ import java.net.URLConnection;
 
 public class SVNChanges {
 
-    private ArrayList<String> Paths = null;
-    private ArrayList<String> SVNCredentials = null;
+    private ArrayList<String> Paths;
+    private ArrayList<String> SVNCredentials;
 
 
     public static void main(String[] argv) throws IOException, SVNException {
 
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
-       // prueba.UpdateOrgUniteStructure();
-        prueba.UpdateOrgUnitLevel1();
+
+       prueba.UpdateOrgUniteStructure();
+        //prueba.UpdateOrgUnitLevel1();
         /*prueba.UpdateOrgUnitLevel2();
         prueba.UpdateOrgUnitLevel3();
         prueba.UpdateOrgUnitLevel4();
@@ -199,9 +200,9 @@ public class SVNChanges {
 
     //UPDATE ORG_UNIT_LVLs STRUCTURE
     public void UpdateOrgUniteStructure() throws IOException, SVNException, FileNotFoundException {
-        Paths = GetPaths("OrgUnitLevelsStructure");
+        GetPaths("_S");
         File Repository = new File(Paths.get(1));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(Paths.get(4)+Paths.get(2));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/org-unit-levels.json");
 
     }
@@ -209,8 +210,9 @@ public class SVNChanges {
 
     //UPDATE FOR ORG_UNIT_LVLs
     public void UpdateOrgUnitLevel1() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel1");
+        GetPaths("_S");
+        URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel1");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 1));
         File Repository = new File(Paths.get(1)+Paths.get(4));
         URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
@@ -218,66 +220,72 @@ public class SVNChanges {
     }
 
     public void UpdateOrgUnitLevel2() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel2");
+        GetPaths("_S");
+        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel2");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 2));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(Paths.get(4)+Paths.get(2));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/2-who-regions.json");
     }
 
 
     public void UpdateOrgUnitLevel3() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel3");
+        GetPaths("_S");
+        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel3");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 3));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL(("http://who-dev.essi.upc.edu:"+Paths.get(2)));
+        URL url_aux = new URL((Paths.get(4)+Paths.get(2)));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/3-who-member-states.json");
     }
 
     public void UpdateOrgUnitLevel4() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel4");
+        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel4");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 4));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(Paths.get(4)+Paths.get(2));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/4-level1.json");
     }
 
     public void UpdateOrgUnitLevel5() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel4");
+        GetPaths("_S");
+        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel4");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 5));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(Paths.get(4)+Paths.get(2));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/5-level2.json");
     }
 
     public void UpdateOrgUnitLevel6() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel6");
+        GetPaths("_S");
+        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel6");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 6));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(Paths.get(4)+Paths.get(2));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/6-level3.json");
     }
 
     public void UpdateOrgUnitLevel7() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel7");
+        GetPaths("_S");
+        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel7");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 7));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(Paths.get(4)+Paths.get(2));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/7-level4.json");
     }
 
     public void UpdateOrgUnitLevel8() throws IOException, SVNException {
-        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+GetPaths("OrgUnitLevelsStructure").get(2));
-        Paths = GetPaths("UpdateOrgUnitLevel8");
+        GetPaths("_S");
+        URL PathOrgStructure = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        GetPaths("UpdateOrgUnitLevel8");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 8));
         File Repository = new File(Paths.get(1)+Paths.get(4));
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:"+Paths.get(2));
+        URL url_aux = new URL(Paths.get(4)+Paths.get(2));
         UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/8-level8.json");
     }
 
@@ -305,27 +313,25 @@ public class SVNChanges {
 
 
 
-    private ArrayList<String> GetPaths(String Type) throws IOException {
-        String cadena;
-        boolean Found = false;
-        ArrayList<String> Paths = new ArrayList<>(3);
-        FileReader f = new FileReader("Paths.txt");
-        BufferedReader b = new BufferedReader(f);
-        this.SVNCredentials = new ArrayList<>(2);
-        b.readLine();
-        this.SVNCredentials.add(b.readLine().substring(10));
-        this.SVNCredentials.add(b.readLine().substring(10));
-        while((cadena = b.readLine())!= null && !Found) {
-            if (Objects.equals(cadena, Type)) {
-                Paths.add(b.readLine().substring(10));
-                Paths.add(b.readLine().substring(10));
-                Paths.add(b.readLine().substring(10));
-                Paths.add(b.readLine().substring(10));
-                Found = true;
-            }
+    private void GetPaths(String Type) throws IOException {
+        //Initialize Properties file
+        Properties prop = new Properties();
+        InputStream is = null;
+        try {
+            is = new FileInputStream("./config.properties");
+            prop.load(is);
+        } catch(IOException e) {
+            System.out.println(e.toString());
         }
-        b.close();
-        return Paths;
+        this.SVNCredentials = new ArrayList<>(2);
+        this.SVNCredentials.add(prop.getProperty("UserName"));
+        this.SVNCredentials.add(prop.getProperty("password"));
+        this.Paths = new ArrayList<>(5);
+        this.Paths.add(0,prop.getProperty("NameInJs"+Type));
+        this.Paths.add(1,prop.getProperty("PathFile"+Type));
+        this.Paths.add(2,prop.getProperty("UrlDHIS2"+Type));
+        this.Paths.add(3,prop.getProperty("UrlSvnRe"+Type));
+        this.Paths.add(4,prop.getProperty("BaseDHIS2url"));
     }
 
 
