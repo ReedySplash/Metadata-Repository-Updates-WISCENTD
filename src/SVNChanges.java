@@ -1,7 +1,11 @@
+import org.tmatesoft.svn.cli.svn.SVNImportCommand;
 import org.tmatesoft.svn.core.*;
 import org.tmatesoft.svn.core.auth.ISVNAuthenticationManager;
 import org.tmatesoft.svn.core.wc.*;
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -11,6 +15,8 @@ import org.tmatesoft.svn.core.io.SVNRepository;
 import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 import org.tmatesoft.svn.core.SVNException;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import org.tmatesoft.svn.core.wc2.SvnImport;
+
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -31,16 +37,16 @@ public class SVNChanges {
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
         prueba.UpdateOrgGroupSets();
-       //prueba.UpdateOrgUniteStructure();
-       // prueba.UpdateOrgUnitLevel1();
-        /*prueba.UpdateOrgUnitLevel2();
+        prueba.UpdateOrgUniteStructure();
+        prueba.UpdateOrgUnitLevel1();
+        prueba.UpdateOrgUnitLevel2();
         prueba.UpdateOrgUnitLevel3();
         prueba.UpdateOrgUnitLevel4();
         prueba.UpdateOrgUnitLevel5();
         prueba.UpdateOrgUnitLevel6();
         prueba.UpdateOrgUnitLevel7();
         prueba.UpdateOrgUnitLevel8();
-
+/*
         prueba.UpdateAttributes();
         prueba.UpdateCategoryCombinations();
         prueba.UpdateCommonDataElements();
@@ -70,9 +76,10 @@ public class SVNChanges {
         GetPaths("_GS","_GS");
         File Repository = new File(Paths.get(1));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-       // UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/"+Paths.get(0)+".json");
-        GetAllSets(url_aux,Paths.get(0));
-        int f =2;
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3),Repository,url_aux,"/"+Paths.get(0)+".json");
+        //GetAllSets(url_aux,Paths.get(0));
+       // Commit();
+        //int f =2;
     }
 
 
@@ -215,7 +222,7 @@ public class SVNChanges {
         GetPaths("_S","_S");
         File Repository = new File(Paths.get(1));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/org-unit-levels.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3),Repository,url_aux,"/org-unit-levels.json");
 
     }
 
@@ -226,9 +233,9 @@ public class SVNChanges {
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_1","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 1));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/1-who-global.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/1-who-global.json");
     }
 
     public void UpdateOrgUnitLevel2() throws IOException, SVNException {
@@ -236,9 +243,9 @@ public class SVNChanges {
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_2","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 2));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/2-who-regions.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/2-who-regions.json");
     }
 
 
@@ -247,18 +254,19 @@ public class SVNChanges {
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_3","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 3));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL((Paths.get(4)+Paths.get(2)));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/3-who-member-states.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/3-who-member-states.json");
     }
 
     public void UpdateOrgUnitLevel4() throws IOException, SVNException {
+        GetPaths("_S","_S");
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_4","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 4));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/4-level1.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/4-level1.json");
     }
 
     public void UpdateOrgUnitLevel5() throws IOException, SVNException {
@@ -266,9 +274,9 @@ public class SVNChanges {
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_5","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 5));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/5-level2.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/5-level2.json");
     }
 
     public void UpdateOrgUnitLevel6() throws IOException, SVNException {
@@ -276,9 +284,9 @@ public class SVNChanges {
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_6","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 6));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/6-level3.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/6-level3.json");
     }
 
     public void UpdateOrgUnitLevel7() throws IOException, SVNException {
@@ -286,9 +294,9 @@ public class SVNChanges {
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_7","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 7));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/7-level4.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/7-level4.json");
     }
 
     public void UpdateOrgUnitLevel8() throws IOException, SVNException {
@@ -296,9 +304,9 @@ public class SVNChanges {
         URL PathOrgStructure = new URL(Paths.get(4)+Paths.get(2));
         GetPaths("_8","_FA");
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 8));
-        File Repository = new File(Paths.get(1)+Paths.get(5));
+        File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
-        UpdateGeneralSVN(Paths.get(3),Repository,url_aux,"/8-level8.json");
+        UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/8-level8.json");
     }
 
 
@@ -322,7 +330,6 @@ public class SVNChanges {
         return null;
     }
 
-
     private void GetPaths(String Type, String Type2) throws IOException {
         //Initialize Properties file
         Properties prop = new Properties();
@@ -342,6 +349,7 @@ public class SVNChanges {
         this.Paths.add(2,prop.getProperty("UrlDHIS2"+Type));
         this.Paths.add(3,prop.getProperty("UrlSvnRe"+Type2));
         this.Paths.add(4,prop.getProperty("BaseDHIS2url"));
+        this.Paths.add(5,prop.getProperty("BaseUrlSvnRe"));
     }
 
     private void GetAllSets(URL DHIS2url, String name) throws IOException {
@@ -366,13 +374,13 @@ public class SVNChanges {
         }
     }
 
-
-
-    public void Commit() throws SVNException {
+    public void Commit() throws SVNException, IOException {
+        GetPaths(null,null);
         SVNRepositoryFactoryImpl.setup();
         SVNRepository repository = null;
         long startRevision = 0;
         long endRevision = -1; //HEAD (the latest) revision
+
 
         try {
             SVNRepositoryFactoryImpl.setup();
@@ -384,10 +392,30 @@ public class SVNChanges {
             System.exit(1);
         }
         SVNClientManager ourClientManager = SVNClientManager.newInstance(null, repository.getAuthenticationManager());
-        File[] repos = new File[2];
-        repos[0] = new File("svn://who-dev.essi.upc.edu/metadata-repository");
-        SVNCommitClient commitClient = ourClientManager.getCommitClient();
-        commitClient.doImport(repos[0],SVNURL.parseURIEncoded("svn://who-dev.essi.upc.edu/metadata-repository"),"Update",false,false);
+        BufferedReader br = new BufferedReader(new FileReader("UpdatePath.txt"));
+
+        //Leemos Paths para actualizar
+        try {
+            String line = br.readLine();
+            ArrayList<String> paths = new ArrayList<>();
+            while (line != "" && line != null) {
+                paths.add(line);
+                line = br.readLine();
+            }
+            File[] repos = new File[paths.size()];
+            for(int i = 0; i < repos.length; ++i) {
+                repos[i] = new File("C:/Users/Victor/Desktop"+paths.get(i));
+                //commitClient.doImport(repos[i],SVNURL.parseURIEncoded("svn://who-dev.essi.upc.edu"+paths.get(i)),null,null,false,false,null);
+            }
+            SVNCommitClient commitClient = ourClientManager.getCommitClient();
+            SVNCommitPacket packet = commitClient.doCollectCommitItems(repos,true,true,true);
+            commitClient.doCommit(packet, true, "Update");
+        } finally {
+            br.close();
+        }
+
+        File file = new File("UpdatePath.txt");
+        file.delete();
     }
 
 
@@ -450,6 +478,24 @@ public class SVNChanges {
                 uc2.setRequestProperty ("Authorization", basicAuth);
                 InputStream in2 = uc2.getInputStream();
                 String Repo_aux = Repository.toString();
+                BufferedWriter out = null;
+                try
+                {
+                    FileWriter fstream = new FileWriter("UpdatePath.txt", true); //true tells to append data.
+                    out = new BufferedWriter(fstream);
+                    out.write(Paths.get(3) + json_name);
+                    out.newLine();
+                }
+                catch (IOException e)
+                {
+                    System.err.println("Error: " + e.getMessage());
+                }
+                finally
+                {
+                    if(out != null) {
+                        out.close();
+                    }
+                }
                 Repo_aux = Repo_aux + json_name;
                 OutputStream outputStream = new FileOutputStream(Repo_aux); // path y nombre del nuevo fichero creado
                 byte[] b = new byte[2048];
@@ -457,15 +503,6 @@ public class SVNChanges {
                 while ((longitud = in2.read(b)) != -1) {
                     outputStream.write(b, 0, longitud);
                 }
-                /*Commit del fichero Json que acabamos de crear
-                File[] repos = new File[2];
-                String file_aux = Repository.toString();
-                repos[0] = new File(file_aux);
-                file_aux = file_aux + json_name;
-                File repos_aux = new File(file_aux);
-                repos[1] = repos_aux;
-                //SVNCommitClient commitClient = ourClientManager.getCommitClient();
-                //commitClient.doImport(repos[0],SVNURL.parseURIEncoded(url),"Update",false,false);*/
             }
             System.out.printf("Fecha obtenida del SVN: ");
             System.out.println(lastUpdate);
