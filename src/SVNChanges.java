@@ -36,8 +36,8 @@ public class SVNChanges {
 
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
-        prueba.UpdateOrgGroupSets();
-        prueba.UpdateOrgUniteStructure();
+       // prueba.UpdateOrgGroupSets();
+       // prueba.UpdateOrgUniteStructure();
         prueba.UpdateOrgUnitLevel1();
         prueba.UpdateOrgUnitLevel2();
         prueba.UpdateOrgUnitLevel3();
@@ -235,6 +235,7 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 1));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/1-who-global.json");
     }
 
@@ -245,6 +246,7 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 2));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/2-who-regions.json");
     }
 
@@ -256,6 +258,7 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 3));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL((Paths.get(4)+Paths.get(2)));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/3-who-member-states.json");
     }
 
@@ -266,6 +269,7 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 4));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/4-level1.json");
     }
 
@@ -276,6 +280,7 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 5));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/5-level2.json");
     }
 
@@ -286,6 +291,7 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 6));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/6-level3.json");
     }
 
@@ -296,6 +302,7 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 7));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/7-level4.json");
     }
 
@@ -306,9 +313,38 @@ public class SVNChanges {
         Paths.add(GetOrgUnitLevelName(PathOrgStructure, 8));
         File Repository = new File(Paths.get(1)+Paths.get(6));
         URL url_aux = new URL(Paths.get(4)+Paths.get(2));
+        CreateDirectory();
         UpdateGeneralSVN(Paths.get(5)+Paths.get(3)+"/"+Paths.get(6),Repository,url_aux,"/8-level8.json");
     }
 
+
+
+
+
+
+    private void CreateDirectory () throws IOException {
+        boolean success = new File(Paths.get(1)+Paths.get(6)).mkdirs();
+        if (success) {
+            BufferedWriter out = null;
+            try
+            {
+                FileWriter fstream = new FileWriter("UpdatePath.txt", true); //true tells to append data.
+                out = new BufferedWriter(fstream);
+                out.write(Paths.get(3)+ "/"+Paths.get(6));
+                out.newLine();
+            }
+            catch (IOException e)
+            {
+                System.err.println("Error: " + e.getMessage());
+            }
+            finally
+            {
+                if(out != null) {
+                    out.close();
+                }
+            }
+        }
+    }
 
     private String GetOrgUnitLevelName(URL DHIS2url, int Level) throws IOException {
         URLConnection uc = DHIS2url.openConnection();
@@ -420,7 +456,9 @@ public class SVNChanges {
 
 
 
-    private void UpdateGeneralSVN(String url, File Repository, URL DHIS2url, String json_name) throws SVNException, IOException {
+
+
+    private void UpdateGeneralSVN(String SVN, File Repository, URL DHIS2url, String json_name) throws SVNException, IOException {
 
         //CONEXION A SVN
         SVNRepositoryFactoryImpl.setup();
@@ -430,7 +468,7 @@ public class SVNChanges {
 
         try {
             SVNRepositoryFactoryImpl.setup();
-            repository = SVNRepositoryFactory.create(SVNURL.parseURIEncoded(url));
+            repository = SVNRepositoryFactory.create(SVNURL.parseURIEncoded(SVN));
             ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager(this.SVNCredentials.get(0), this.SVNCredentials.get(1));
             repository.setAuthenticationManager(authManager);
         } catch (SVNException e) {
@@ -441,7 +479,7 @@ public class SVNChanges {
         SVNClientManager ourClientManager = SVNClientManager.newInstance(null, repository.getAuthenticationManager());
         SVNUpdateClient updateClient = ourClientManager.getUpdateClient();
         updateClient.setIgnoreExternals(false);
-        updateClient.doCheckout(SVNURL.parseURIEncoded(url),Repository,SVNRevision.HEAD,SVNRevision.HEAD,true);
+        updateClient.doCheckout(SVNURL.parseURIEncoded(SVN),Repository,SVNRevision.HEAD,SVNRevision.HEAD,true);
 
         Date lastUpdate = new Date();
         Collection logEntries = null;
@@ -498,7 +536,7 @@ public class SVNChanges {
                 }
                 Repo_aux = Repo_aux + json_name;
                 OutputStream outputStream = new FileOutputStream(Repo_aux); // path y nombre del nuevo fichero creado
-                byte[] b = new byte[2048];
+                byte[] b = new byte[2048 ];
                 int longitud;
                 while ((longitud = in2.read(b)) != -1) {
                     outputStream.write(b, 0, longitud);
