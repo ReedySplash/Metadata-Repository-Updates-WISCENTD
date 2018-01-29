@@ -25,6 +25,7 @@ public class SVNChanges {
     private ArrayList<String> Paths;
     private ArrayList<String> SVNCredentials;
     private String[][] Sets;
+    private ArrayList<String> Groups;
 
 
     public static void main(String[] argv) throws IOException, SVNException {
@@ -70,17 +71,28 @@ public class SVNChanges {
     public void UpdateAllOrgGroups() throws IOException, SVNException {
         GetPaths("_GS", "_GS");
         GetAllSets(new URL(Paths.get(4) + Paths.get(2)), Paths.get(0));
-        for (int i = 0; i < Sets.length; ++i) {
+        /*for (int i = 0; i < Sets.length; ++i) {
             CreateDirectory(true, i);
             int j = 1;
             while (Sets[i][j] != null){
                 File Repository = new File(Paths.get(1) + "/" + Sets[i][0]);
                 GetPaths("_G", "_G");
                 URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Sets[i][j]);
-                UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/" + Sets[i][0], Repository, url_aux, "/" + Sets[i][j] + ".json",i);
+                UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/" + Sets[i][0], Repository, url_aux, "/" + Sets[i][j] + ".json",i,false);
                 ++j;
             }
+        }*/
+        Paths.add("/Others");
+        CreateDirectory(false, 0);
+        GetPaths("_G", "_G");
+        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < Groups.size(); ++i) {
+            File Repository = new File(Paths.get(1) + "/Others");
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + Groups.get(i) + ".json",0,true);
         }
+
+
     }
 
     //Shape Files Update
@@ -316,6 +328,26 @@ public class SVNChanges {
         return null;
     }
 
+    private void GetAllGroups(URL DHIS2url) throws IOException {
+        URLConnection uc = DHIS2url.openConnection();
+        String userpass = "vmurciano" + ":" + "Vict0r2017#";
+        String basicAuth = "Basic " + Base64.encode(userpass.getBytes());
+        uc.setRequestProperty("Authorization", basicAuth);
+        InputStream in = uc.getInputStream();
+        try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
+            JsonObject obj = rdr.readObject();
+            JsonArray OrgGroups = obj.getJsonArray("organisationUnitGroups");
+            for (int i = 0; i < OrgGroups.size(); ++i) {
+                JsonObject Group = OrgGroups.getJsonObject(i);
+                String id = Group.getString("id");
+                if (Groups.contains(id)) {
+                    Groups.remove(id);
+                }
+                else Groups.add(id);
+            }
+        }
+    }
+
     private void GetPaths(String Type, String Type2) throws IOException {
         //Initialize Properties file
         Properties prop = new Properties();
@@ -339,6 +371,7 @@ public class SVNChanges {
     }
 
     private void GetAllSets(URL DHIS2url, String name) throws IOException {
+        Groups = new ArrayList<>();
         URLConnection uc = DHIS2url.openConnection();
         String userpass = "vmurciano" + ":" + "Vict0r2017#";
         String basicAuth = "Basic " + Base64.encode(userpass.getBytes());
@@ -355,6 +388,7 @@ public class SVNChanges {
                 for (int j = 0; j < SetsID.size(); ++j) {
                     JsonObject id = SetsID.getJsonObject(j);
                     Sets[i][j + 1] = id.getString("id");
+                    Groups.add(id.getString("id"));
                 }
             }
         }
@@ -473,7 +507,7 @@ public class SVNChanges {
         }
     }
 
-    private void UpdateGeneralSVN_WithoutForinJson(String SVN, File Repository, URL DHIS2url, String json_name, int i) throws SVNException, IOException {
+    private void UpdateGeneralSVN_WithoutForinJson(String SVN, File Repository, URL DHIS2url, String json_name, int i, boolean others) throws SVNException, IOException {
 
         //CONEXION A SVN
         SVNRepositoryFactoryImpl.setup();
@@ -521,11 +555,17 @@ public class SVNChanges {
         } catch (ParseException e1) {
             e1.printStackTrace();
         }
-        if (actualizar) {
+        if (actualizar && !others) {
             Paths.set(3,Paths.get(3)+"/"+Sets[i][0]);
             Actualizar(Repository,DHIS2url,json_name,basicAuth);
             Paths.set(3,Paths.get(3).substring(0,Paths.get(3).length()-(2+Sets[i][0].length())));
         }
+        else {
+            Paths.set(3,Paths.get(3)+"/Others");
+            Actualizar(Repository,DHIS2url,json_name,basicAuth);
+            Paths.set(3,Paths.get(3).substring(0,Paths.get(3).length()-(7)));
+        }
+
         System.out.printf("Fecha obtenida del SVN: ");
         System.out.println(lastUpdate);
     }
