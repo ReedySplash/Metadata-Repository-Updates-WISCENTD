@@ -387,8 +387,8 @@ public class SVNChanges {
                 JsonArray SetsID = Set.getJsonArray("organisationUnitGroups");
                 for (int j = 0; j < SetsID.size(); ++j) {
                     JsonObject id = SetsID.getJsonObject(j);
-                    Sets[i][j + 1] = id.getString("id");
-                    Groups.add(id.getString("id"));
+                    Sets[i][j + 1] = id.getString("id")+"-"+id.getString("displayName");
+                    Groups.add(id.getString("id")+"-"+id.getString("displayName"));
                 }
             }
         }
