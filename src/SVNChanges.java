@@ -37,7 +37,7 @@ public class SVNChanges {
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
         prueba.UpdateOrgGroupSetsStructure();
-        //prueba.UpdateAllOrgGroups();
+        prueba.UpdateAllOrgGroups();
         prueba.Commit();
         /*
         prueba.UpdateOrgUniteStructure();
@@ -460,8 +460,8 @@ public class SVNChanges {
             JsonObject obj = rdr.readObject();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
             Date date2 = formatter.parse(obj.getString("lastUpdated").replaceAll("Z$", "+0000"));
-            String id = json_name;
-            json_name = obj.getString("name");
+            String id = json_name.substring(1,11);
+            json_name = "/" + obj.getString("name") + "-";
             json_name += id + ".json";
 
             if (date2.before(lastUpdate)) {
@@ -537,6 +537,7 @@ public class SVNChanges {
 
         SVNClientManager ourClientManager = SVNClientManager.newInstance(null, repository.getAuthenticationManager());
         BufferedReader br = new BufferedReader(new FileReader("UpdatePath.txt"));
+        SVNWCClient CClient = ourClientManager.getWCClient();
         //Leemos Paths para actualizar
         try {
             String line = br.readLine();
@@ -547,9 +548,10 @@ public class SVNChanges {
             }
             File[] repos = new File[paths.size()];
             for (int i = 0; i < repos.length; ++i) {
-                repos[i] = new File("C:/Users/Víctor/Desktop" + paths.get(i));
+                repos[i] = new File("C:/Users/Victor/Desktop" + paths.get(i));
             }
 
+            CClient.doAdd(repos,true,false,false,SVNDepth.INFINITY,false,false,false);
             final SVNCommitClient commitClient = ourClientManager.getCommitClient();
             SVNCommitPacket packet = commitClient.doCollectCommitItems(repos,true,false,SVNDepth.INFINITY,null);
             final SVNCommitInfo commitInfo = commitClient.doCommit(packet, true, false, "Commit",null);
