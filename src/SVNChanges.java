@@ -36,7 +36,7 @@ public class SVNChanges {
 
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
-        //prueba.UpdateOrgGroupSetsStructure();
+        prueba.UpdateOrgGroupSetsStructure();
         //prueba.UpdateAllOrgGroups();
         prueba.Commit();
         /*
@@ -460,7 +460,9 @@ public class SVNChanges {
             JsonObject obj = rdr.readObject();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
             Date date2 = formatter.parse(obj.getString("lastUpdated").replaceAll("Z$", "+0000"));
-            json_name += obj.getString("name") + ".json";
+            String id = json_name;
+            json_name = obj.getString("name");
+            json_name += id + ".json";
 
             if (date2.before(lastUpdate)) {
                 actualizar = true;
@@ -535,7 +537,6 @@ public class SVNChanges {
 
         SVNClientManager ourClientManager = SVNClientManager.newInstance(null, repository.getAuthenticationManager());
         BufferedReader br = new BufferedReader(new FileReader("UpdatePath.txt"));
-        SVNChangelistClient s = ourClientManager.getChangelistClient();
         //Leemos Paths para actualizar
         try {
             String line = br.readLine();
@@ -546,15 +547,13 @@ public class SVNChanges {
             }
             File[] repos = new File[paths.size()];
             for (int i = 0; i < repos.length; ++i) {
-                repos[i] = new File("C:/Users/Victor/Desktop" + paths.get(i));
+                repos[i] = new File("C:/Users/Víctor/Desktop" + paths.get(i));
             }
-            s.doAddToChangelist(repos,SVNDepth.INFINITY,null,null);
-           try {
-                final SVNCommitClient commitClient = ourClientManager.getCommitClient();
-                final SVNCommitInfo commitInfo = commitClient.doCommit(repos, false, "Commit message", null, null, false, false, SVNDepth.INFINITY);
-            } finally {
-                ourClientManager.dispose();
-            }
+
+            final SVNCommitClient commitClient = ourClientManager.getCommitClient();
+            SVNCommitPacket packet = commitClient.doCollectCommitItems(repos,true,false,SVNDepth.INFINITY,null);
+            final SVNCommitInfo commitInfo = commitClient.doCommit(packet, true, false, "Commit",null);
+
         } finally {
             br.close();
         }
