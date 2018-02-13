@@ -1,15 +1,10 @@
-import com.sun.org.apache.regexp.internal.RE;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
-import org.tmatesoft.svn.cli.svn.SVNAddCommand;
 import org.tmatesoft.svn.core.*;
 import org.tmatesoft.svn.core.auth.ISVNAuthenticationManager;
 import org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryFactoryImpl;
-import org.tmatesoft.svn.core.io.ISVNEditor;
 import org.tmatesoft.svn.core.io.SVNRepository;
 import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 import org.tmatesoft.svn.core.wc.*;
-import org.tmatesoft.svn.core.wc2.*;
-
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -21,8 +16,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static org.apache.subversion.javahl.types.NodeKind.file;
-import static org.tmatesoft.svn.core.wc.ISVNAddParameters.*;
 
 
 public class SVNChanges {
@@ -30,7 +23,7 @@ public class SVNChanges {
     private ArrayList<String> Paths;
     private ArrayList<String> SVNCredentials;
     private String[][] Sets;
-    private ArrayList<String> Groups;
+    private ArrayList<String> Groups = null;
     private boolean creado;
 
 
@@ -39,7 +32,7 @@ public class SVNChanges {
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
         prueba.CheckoutOrUpdate();
-        /*prueba.UpdateOrgGroupSetsStructure();
+       /* prueba.UpdateOrgGroupSetsStructure();
         prueba.UpdateAllOrgGroups();
         prueba.UpdateOrgUniteStructure();
         prueba.UpdateOrgUnitLevel1();
@@ -49,9 +42,11 @@ public class SVNChanges {
         prueba.UpdateOrgUnitLevel5();
         prueba.UpdateOrgUnitLevel6();
         prueba.UpdateOrgUnitLevel7();
-        prueba.UpdateOrgUnitLevel8();*/
+        prueba.UpdateOrgUnitLevel8();
+        prueba.UpdateProgramIndicatorGroups();
         prueba.UpdateIndicatorsGroupsSets();
-        prueba.UpdateAllIndicatorGroups();
+        prueba.UpdateAllIndicatorGroups();*/
+        prueba.UpdateAllDataElementGroups();
         prueba.Commit();
     }
 
@@ -91,34 +86,40 @@ public class SVNChanges {
         }
     }
 
-    //Shape Files Update
-    public void UpdateShapeFilesDetails() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/shape-files/optimized");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/shape-files/optimized", Repository, url_aux, null);
+    //Data Elements
+    public void UpdateDataElementGroupsSetsStructure() throws IOException, SVNException {
+        GetPaths("_DGS", "_DGS");
+        File Repository = new File(Paths.get(1));
+        URL url_aux = new URL(Paths.get(4) + Paths.get(2));
+        UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/" + Paths.get(0) + ".json");
     }
 
-    public void UpdateShapeOptimized() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/org-unit-tree/shape-files/detailed");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/org-unit-tree/shape-files/detailed", Repository, url_aux, null);
+    public void UpdateAllDataElementGroups() throws IOException, SVNException {
+        //GetPaths("_DGS", "_DGS");
+        //GetAllSets(new URL(Paths.get(4) + Paths.get(2)), Paths.get(0));
+       /* for (int i = 0; i < Sets.length; ++i) {
+            CreateDirectory(true, i);
+            int j = 1;
+            while (Sets[i][j] != null){
+                File Repository = new File(Paths.get(1) + "/" + Sets[i][0]);
+                GetPaths("_DG", "_DG");
+                URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Sets[i][j]);
+                UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/" + Sets[i][0], Repository, url_aux, "/" + Sets[i][j] + "-",i,false);
+                ++j;
+            }
+        }*/
+        GetPaths("_DG", "_DG");
+        Paths.add("Others");
+        CreateDirectory(false, 0);
+        GetPaths("_DG", "_DG");
+        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < Groups.size(); ++i) {
+            File Repository = new File(Paths.get(1) + "/Others");
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + Groups.get(i) + "-",0,true);
+        }
     }
 
-
-    //Common Data Elements
-    public void UpdateCommonDataElements() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/common-data-elements");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/common-data-elements", Repository, url_aux, null);
-    }
-
-
-    //Dashoard
-    public void UpdateDashboards() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/dashboards");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/dashboards", Repository, url_aux, null);
-    }
 
 
     //Indicators
@@ -156,57 +157,17 @@ public class SVNChanges {
     }
 
 
-    //Data Collection Forms
-    public void UpdateDataSets() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/data-collection-forms/datasets");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/data-collection-forms/datasets", Repository, url_aux, null);
-    }
+    //ProgramIndicatorGroups
 
-    public void UpdateProgramsWoRegistration() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/data-collection-forms/programs-wo-registration");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/data-collection-forms/programs-wo-registration", Repository, url_aux, null);
-    }
-
-    public void UpdateProgramsWRegistration() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/data-collection-forms/programs-w-registration");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/data-collection-forms/programs-w-registration", Repository, url_aux, null);
-    }
-
-
-    //General
-    public void UpdateAttributes() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/general/attributes");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/general/attributes", Repository, url_aux, null);
-    }
-
-    public void UpdateCategoryCombinations() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/general/category-combinations");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/general/category-combinations", Repository, url_aux, null);
-    }
-
-    public void UpdateValidationRules() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/general/validation-rules");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/general/validation-rules", Repository, url_aux, null);
-    }
-
-
-    //User Management
-    public void UpdateUserGroups() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/user-management/user-groups");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/user-management/user-groups", Repository, url_aux, null);
-    }
-
-    public void UpdateUserRoles() throws IOException, SVNException {
-        File Repository = new File("C:/Users/Victor/Desktop/metadata-repository_prueba/user-management/user-roles");
-        URL url_aux = new URL("http://who-dev.essi.upc.edu:8081/api/organisationUnitLevels/eI3Bg6uFNKO");
-        UpdateGeneralSVN("svn://who-dev.essi.upc.edu/metadata-repository/user-management/user-roles", Repository, url_aux, null);
+    public void UpdateProgramIndicatorGroups() throws IOException, SVNException {
+        GetPaths("_PIG", "_PIG");
+        CreateDirectory(false, -1);
+        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < Groups.size(); ++i) {
+            File Repository = new File(Paths.get(1));
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + Groups.get(i) + "-",0,true);
+        }
     }
 
 
@@ -218,6 +179,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/org-unit-levels.json");
 
     }
+
 
     //UPDATE FOR ORG_UNIT_LVLs
     public void UpdateOrgUnitLevel1() throws IOException, SVNException {
@@ -312,6 +274,7 @@ public class SVNChanges {
     private void CreateDirectory(boolean Different, int i) throws IOException {
         boolean success;
         if (Different) success = (new File(Paths.get(1) + "/" + Sets[i][0])).mkdirs();
+        else if (i == -1 && !Different) success = new File(Paths.get(1)).mkdirs();
         else success = new File(Paths.get(1) +"/"+ Paths.get(6)).mkdirs();
         if (success) {
             creado = true;
@@ -320,6 +283,7 @@ public class SVNChanges {
                 FileWriter fstream = new FileWriter("UpdatePath.txt", true); //true tells to append data.
                 out = new BufferedWriter(fstream);
                 if (Different) out.write(Paths.get(1) + "/" + Sets[i][0]);
+                else if (i == -1 && !Different) out.write(Paths.get(1));
                 else out.write(Paths.get(1) + "/" + Paths.get(6));
                 out.newLine();
             } catch (IOException e) {
@@ -350,6 +314,7 @@ public class SVNChanges {
     }
 
     private void GetAllGroups(URL DHIS2url) throws IOException {
+        if (Groups == null) Groups = new ArrayList<>();
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
         InputStream in = uc.getInputStream();
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
@@ -358,10 +323,12 @@ public class SVNChanges {
             for (int i = 0; i < OrgGroups.size(); ++i) {
                 JsonObject Group = OrgGroups.getJsonObject(i);
                 String id = Group.getString("id");
-                if (Groups.contains(id)) {
+                if (Groups != null && Groups.contains(id)) {
                     Groups.remove(id);
                 }
-                else Groups.add(id);
+                else {
+                    Groups.add(id);
+                }
             }
         }
     }
@@ -467,13 +434,14 @@ public class SVNChanges {
         boolean actualizar = false;
         try (InputStream is = in;
              JsonReader rdr = Json.createReader(is)) {
+            TimeZone.setDefault(new SimpleTimeZone(60 * 60 * 1000, "CET"));
             JsonObject obj = rdr.readObject();
             JsonArray hola = obj.getJsonArray(Paths.get(0));
             for (int i = 0; i < hola.size(); ++i) {
                 JsonObject hola2 = hola.getJsonObject(i);
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
                 Date date2 = formatter.parse(hola2.getString("lastUpdated").replaceAll("Z$", "+0000"));
-                if (date2.before(lastUpdate)) {
+                if (lastUpdate == null || lastUpdate.before(date2)) {
                     actualizar = true;
                     break;
                 }
@@ -493,7 +461,6 @@ public class SVNChanges {
         //CONEXION A SVN
         SVNRepository repository = initConnectionToSVN(SVN);
         Date lastUpdate = GetLastUpdateDate_SVN(SVN,Repository,repository);
-
         //PARTE DE JSON
 
         String userpass = "vmurciano" + ":" + "Vict0r2017#";
@@ -503,14 +470,15 @@ public class SVNChanges {
 
         boolean actualizar = false;
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
-            JsonObject obj = rdr.readObject();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
+            TimeZone.setDefault(new SimpleTimeZone(60 * 60 * 1000, "CET"));            JsonObject obj = rdr.readObject();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss",Locale.ENGLISH);
             Date date2 = formatter.parse(obj.getString("lastUpdated").replaceAll("Z$", "+0000"));
+            System.out.println("FECHA DEL JSON: "+date2);
             String id = json_name.substring(1,11);
             json_name = "/" +"DDD"+"-";
             json_name += id + ".json";
 
-            if (true) {
+            if (lastUpdate == null || lastUpdate.before(date2)) {
                 actualizar = true;
             }
         } catch (ParseException e1) {
@@ -521,7 +489,7 @@ public class SVNChanges {
             Actualizar(Repository,DHIS2url,json_name);
             Paths.set(3,Paths.get(3).substring(0,Paths.get(3).length()-(2+Sets[i][0].length())));
         }
-        else {
+        else if(actualizar && others){
             Paths.set(3,Paths.get(3)+"/Others");
             Actualizar(Repository,DHIS2url,json_name);
             Paths.set(3,Paths.get(3).substring(0,Paths.get(3).length()-(7)));
@@ -575,11 +543,16 @@ public class SVNChanges {
     }
 
     public void Commit() throws SVNException, IOException {
-        GetPaths(null, null);
+        GetPaths("_GE", "_GE");
 
-        SVNRepository repository = initConnectionToSVN("svn://who-dev.essi.upc.edu/metadata-repository/");
+        SVNRepository repository = initConnectionToSVN(Paths.get(5)+Paths.get(3));
 
         SVNClientManager ourClientManager = SVNClientManager.newInstance(null, repository.getAuthenticationManager());
+        File UpdateFile = new File("UpdatePath.txt");
+        if (!UpdateFile.exists()) {
+            System.out.println("There is nothing to update");
+            System.exit(1);
+        }
         BufferedReader br = new BufferedReader(new FileReader("UpdatePath.txt"));
         SVNWCClient CClient = ourClientManager.getWCClient();
         //Leemos Paths para actualizar
@@ -595,7 +568,7 @@ public class SVNChanges {
                 repos[i] = new File(paths.get(i));
             }
 
-            CClient.doAdd(repos,true,false,false,SVNDepth.INFINITY,false,false,false);
+            CClient.doAdd(repos,true,false,false,SVNDepth.INFINITY,false,false,true);
             final SVNCommitClient commitClient = ourClientManager.getCommitClient();
             SVNCommitPacket packet = commitClient.doCollectCommitItems(repos,true,false,SVNDepth.INFINITY,null);
             commitClient.doCommit(packet, true, false, "Commit",null);
