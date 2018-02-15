@@ -33,8 +33,9 @@ public class SVNChanges {
         SVNChanges prueba = new SVNChanges();
         prueba.CheckoutOrUpdate();
         //prueba.UpdateIndicatorsGroupsSets();
-        prueba.UpdateProgramIndicatorGroups();
-        prueba.UpdateProgramIndicators();
+        //prueba.UpdateProgramIndicatorGroups();
+        //prueba.UpdateProgramIndicators();
+        prueba.UpdateIndicatorTypes();
        // prueba.UpdateIndicators();
        // prueba.UpdateIndicatorGroups();
        /* prueba.UpdateOrgGroupSetsStructure();
@@ -126,26 +127,9 @@ public class SVNChanges {
     }
 
 
-
     //Indicators
     public void UpdateIndicators() throws IOException, SVNException {
-        Groups = null;
-        GetPaths("_I", "_I");
-        CreateDirectory(false, -1);
-        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
-        for (int i = 0; i < Groups.size(); ++i) {
-            File Repository = new File(Paths.get(1));
-            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
-            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + Groups.get(i) + "-",0,false,false);
-        }
-    }
-
-    public void UpdateIndicatorsGroupsSets() throws IOException, SVNException {
-        GetPaths("_IGS", "_IGS");
-        CreateDirectory(false,-1);
-        File Repository = new File(Paths.get(1));
-        URL url_aux = new URL(Paths.get(4) + Paths.get(2));
-        UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/" + Paths.get(0) + ".json");
+        GeneralLoop("_I");
     }
 
     public void UpdateIndicatorGroups() throws IOException, SVNException {
@@ -176,30 +160,31 @@ public class SVNChanges {
         }
     }
 
-
+    public void UpdateIndicatorsGroupsSets() throws IOException, SVNException {
+        GetPaths("_IGS", "_IGS");
+        CreateDirectory(false,-1);
+        File Repository = new File(Paths.get(1));
+        URL url_aux = new URL(Paths.get(4) + Paths.get(2));
+        UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/" + Paths.get(0) + ".json");
+    }
 
 
     //ProgramIndicatorGroups
 
     public void UpdateProgramIndicatorGroups() throws IOException, SVNException {
-        ProgramIndicators("_PIG");
+        GeneralLoop("_PIG");
     }
 
     public void UpdateProgramIndicators() throws IOException, SVNException {
-        ProgramIndicators("_PI");
+        GeneralLoop("_PI");
     }
 
-    private void ProgramIndicators(String Type) throws IOException, SVNException {
-        Groups = null;
-        GetPaths(Type, Type);
-        CreateDirectory(false, -1);
-        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
-        for (int i = 0; i < Groups.size(); ++i) {
-            File Repository = new File(Paths.get(1));
-            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
-            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
-        }
+
+    //IndicatorTypes
+    public void UpdateIndicatorTypes() throws IOException, SVNException {
+        GeneralLoop("_IT");
     }
+
 
 
     //UPDATE ORG_UNIT_LVLs STRUCTURE
@@ -407,6 +392,17 @@ public class SVNChanges {
         }
     }
 
+    private void GeneralLoop(String Type) throws IOException, SVNException {
+        Groups = null;
+        GetPaths(Type, Type);
+        CreateDirectory(false, -1);
+        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < Groups.size(); ++i) {
+            File Repository = new File(Paths.get(1));
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
+        }
+    }
 
 
 
