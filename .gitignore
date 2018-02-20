@@ -1,0 +1,8 @@
+#folders ignore
+.idea/*
+build/*
+out/*
+
+#files
+*.iml
+*.dat
