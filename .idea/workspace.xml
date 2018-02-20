@@ -15,25 +15,23 @@
       <file leaf-file-name="SVNChanges.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SVNChanges.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+            <state relative-caret-position="251">
+              <caret line="332" column="25" lean-forward="false" selection-start-line="332" selection-start-column="25" selection-end-line="332" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+                <element signature="e#3244#3271#0" expanded="false" />
+                <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -44,58 +42,30 @@
                 <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-                <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
                 <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+                <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SVNCommitClient.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/wc/SVNCommitClient.java">
+      <file leaf-file-name="ExceptionInSVN.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ExceptionInSVN.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1167" column="0" lean-forward="false" selection-start-line="1167" selection-start-column="0" selection-end-line="1167" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SvnTarget.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/wc2/SvnTarget.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
-                <element signature="e#815#816#0" expanded="true" />
-                <element signature="e#875#876#0" expanded="true" />
-                <element signature="e#1220#1221#0" expanded="true" />
-                <element signature="e#1275#1276#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SVNSocketFactory.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/internal/util/SVNSocketFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/ArrayList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="432" column="0" lean-forward="false" selection-start-line="432" selection-start-column="0" selection-end-line="432" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -107,6 +77,7 @@
       <list>
         <option value="struts-config" />
         <option value="struts_2_5" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -124,6 +95,9 @@
         <option value="$PROJECT_DIR$/src/example/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/GetJson.java" />
+        <option value="$PROJECT_DIR$/config.properties" />
+        <option value="$PROJECT_DIR$/UpdatePath.txt" />
+        <option value="$PROJECT_DIR$/src/ExceptionInSVN.java" />
         <option value="$PROJECT_DIR$/src/SVNChanges.java" />
       </list>
     </option>
@@ -134,9 +108,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="471" />
-    <option name="y" value="10" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -156,20 +129,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Java WHO" type="b2602c69:ProjectViewProjectNode" />
               <item name="WHO_JAVA_GITHUB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java WHO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WHO_JAVA_GITHUB" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Java WHO" type="b2602c69:ProjectViewProjectNode" />
@@ -184,7 +152,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,45 +376,64 @@
       <workItem from="1517010150341" duration="3357000" />
       <workItem from="1517072142962" duration="12522000" />
       <workItem from="1517163959374" duration="3649000" />
+      <workItem from="1517174977629" duration="3771000" />
+      <workItem from="1517329606555" duration="7017000" />
+      <workItem from="1517510257054" duration="3007000" />
+      <workItem from="1517680467824" duration="4805000" />
+      <workItem from="1517705114743" duration="4205000" />
+      <workItem from="1517777393940" duration="9851000" />
+      <workItem from="1517854313887" duration="746000" />
+      <workItem from="1518002234711" duration="775000" />
+      <workItem from="1518004284097" duration="7483000" />
+      <workItem from="1518096435580" duration="8625000" />
+      <workItem from="1518116470200" duration="7410000" />
+      <workItem from="1518198598824" duration="4368000" />
+      <workItem from="1518203181921" duration="2536000" />
+      <workItem from="1518279776697" duration="1827000" />
+      <workItem from="1518477215945" duration="3314000" />
+      <workItem from="1518602685250" duration="1910000" />
+      <workItem from="1518712514406" duration="10266000" />
+      <workItem from="1518802551032" duration="5414000" />
+      <workItem from="1518881662751" duration="4719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117761000" />
+    <option name="totallyTimeSpent" value="209810000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31613612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28869376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Struts Assistant" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07675906" sideWeight="0.4150641" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07675906" sideWeight="0.5849359" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41684902" sideWeight="0.7361111" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41684902" sideWeight="0.2638889" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32381997" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3847826" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,12 +447,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/SVNChanges.java</url>
-          <line>210</line>
+          <line>118</line>
           <properties />
-          <option name="timeStamp" value="191" />
+          <option name="timeStamp" value="339" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SVNChanges.java</url>
+          <line>371</line>
+          <properties />
+          <option name="timeStamp" value="354" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="218" />
+      <option name="time" value="355" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -478,7 +471,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GetJson.java" />
     <entry file="file://$PROJECT_DIR$/src/SVNChanges.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -487,19 +479,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -510,178 +500,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetJson.java" />
-    <entry file="file://$PROJECT_DIR$/src/SVNChanges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel3#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel4#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel5#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel6#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetJson.java" />
-    <entry file="file://$PROJECT_DIR$/src/SVNChanges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel3#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel4#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel5#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel6#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SVNChanges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel3#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel4#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel5#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel6#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SVNChanges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel3#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel4#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel5#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel6#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -698,19 +527,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -721,12 +548,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -748,19 +580,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -771,12 +601,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -790,19 +625,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -813,12 +646,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -831,19 +669,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -854,12 +690,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -872,19 +713,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -895,12 +734,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -913,19 +757,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -936,12 +778,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -958,19 +805,17 @@
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -981,12 +826,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1015,71 +865,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/internal/wc/SVNErrorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1648">
-          <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/wc2/SvnTarget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="816">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/wc/SVNCommitClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="19176">
           <caret line="1167" column="0" lean-forward="false" selection-start-line="1167" selection-start-column="0" selection-end-line="1167" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="432" column="0" lean-forward="false" selection-start-line="432" selection-start-column="0" selection-end-line="432" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/internal/util/SVNSocketFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="2006">
           <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpdatePath.txt" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/internal/io/svn/SVNCommitEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3366">
+          <caret line="228" column="9" lean-forward="false" selection-start-line="228" selection-start-column="9" selection-end-line="228" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/internal/io/svn/SVNReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/svnkit-1.9.0-sources.jar!/org/tmatesoft/svn/core/internal/wc/SVNErrorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6698">
+          <caret line="432" column="0" lean-forward="false" selection-start-line="432" selection-start-column="0" selection-end-line="432" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/javax.json-1.0.4.jar!/org/glassfish/json/JsonObjectBuilderImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding>
+            <element signature="e#5234#5235#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ExceptionInSVN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SVNChanges.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+        <state relative-caret-position="251">
+          <caret line="332" column="25" lean-forward="false" selection-start-line="332" selection-start-column="25" selection-end-line="332" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#UpdateOrgGroupSetsStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateAllOrgGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeFilesDetails#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateShapeOptimized#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCommonDataElements#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDashboards#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateIndictors#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateDataSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWoRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateProgramsWRegistration#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateAttributes#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateCategoryCombinations#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateValidationRules#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserGroups#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateUserRoles#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElements#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="e#3244#3271#0" expanded="false" />
+            <element signature="method#UpdateDataElementGroupSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicators#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateIndicatorsGroupsSets#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRule#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateValidationRuleGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicatorGroups#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#UpdateProgramIndicators#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUniteStructure#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel1#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel2#0;class#SVNChanges#0" expanded="false" />
@@ -1090,12 +980,17 @@
             <element signature="method#UpdateOrgUnitLevel7#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateOrgUnitLevel8#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetOrgUnitLevelName#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetAllGroups#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetPaths#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#GetAllSets#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GeneralLoop#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToDHIS2#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#initConnectionToSVN#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#CheckoutOrUpdate#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#UpdateGeneralSVN#0;class#SVNChanges#0" expanded="false" />
-            <element signature="method#UpdateGeneralSVN_WithoutForinJson#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#GetLastUpdateDate_SVN#0;class#SVNChanges#0" expanded="false" />
             <element signature="method#Actualizar#0;class#SVNChanges#0" expanded="false" />
+            <element signature="method#Commit#0;class#SVNChanges#0" expanded="false" />
           </folding>
         </state>
       </provider>

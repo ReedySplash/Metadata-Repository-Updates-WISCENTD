@@ -32,25 +32,16 @@ public class SVNChanges {
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
         prueba.CheckoutOrUpdate();
-        //prueba.UpdateIndicatorsGroupsSets();
-        //prueba.UpdateProgramIndicatorGroups();
-        //prueba.UpdateProgramIndicators();
-        prueba.UpdateIndicatorTypes();
-       // prueba.UpdateIndicators();
-       // prueba.UpdateIndicatorGroups();
-       /* prueba.UpdateOrgGroupSetsStructure();
-        prueba.UpdateAllOrgGroups();
-        prueba.UpdateOrgUniteStructure();
-        prueba.UpdateOrgUnitLevel1();
-        prueba.UpdateOrgUnitLevel2();
-        prueba.UpdateOrgUnitLevel3();
-        prueba.UpdateOrgUnitLevel4();
-        prueba.UpdateOrgUnitLevel5();
-        prueba.UpdateOrgUnitLevel6();
-        prueba.UpdateOrgUnitLevel7();
-        prueba.UpdateOrgUnitLevel8();
-        prueba.UpdateAllDataElementGroups();
-        */
+        prueba.UpdateConstant();
+        prueba.UpdateAttribute();
+        prueba.UpdateOptionSet();
+        prueba.UpdateLegend();
+        prueba.UpdateExternalMapLayer();
+
+        /*prueba.UpdateDataElements();
+        prueba.UpdateDataElementGroups();
+        prueba.UpdateDataElementGroupSets();
+*/
         prueba.Commit();
     }
 
@@ -91,14 +82,12 @@ public class SVNChanges {
     }
 
     //Data Elements
-    public void UpdateDataElementGroupsSetsStructure() throws IOException, SVNException {
-        GetPaths("_DGS", "_DGS");
-        File Repository = new File(Paths.get(1));
-        URL url_aux = new URL(Paths.get(4) + Paths.get(2));
-        UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/" + Paths.get(0) + ".json");
+
+    public void UpdateDataElements() throws IOException, SVNException {
+        GeneralLoop("_D");
     }
 
-    public void UpdateAllDataElementGroups() throws IOException, SVNException {
+    public void UpdateDataElementGroups() throws IOException, SVNException {
         Groups = null;
         //GetPaths("_DGS", "_DGS");
         //GetAllSets(new URL(Paths.get(4) + Paths.get(2)), Paths.get(0));
@@ -124,6 +113,13 @@ public class SVNChanges {
             URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
             UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
         }
+    }
+
+    public void UpdateDataElementGroupSets() throws IOException, SVNException {
+        GetPaths("_DGS", "_DGS");
+        File Repository = new File(Paths.get(1));
+        URL url_aux = new URL(Paths.get(4) + Paths.get(2));
+        UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/" + Paths.get(0) + ".json");
     }
 
 
@@ -169,6 +165,19 @@ public class SVNChanges {
     }
 
 
+    //Validations
+    public void UpdateValidationRule() throws IOException, SVNException {
+        GeneralLoop("_V");
+    }
+
+    public void UpdateValidationRuleGroups() throws IOException, SVNException {
+        GeneralLoop("_VG");
+    }
+
+
+    //FALTA VALIDATION NOTIFICATION//
+
+
     //ProgramIndicatorGroups
 
     public void UpdateProgramIndicatorGroups() throws IOException, SVNException {
@@ -183,6 +192,38 @@ public class SVNChanges {
     //IndicatorTypes
     public void UpdateIndicatorTypes() throws IOException, SVNException {
         GeneralLoop("_IT");
+    }
+
+
+    //Data Set
+    public void UpdateDataSet() throws IOException, SVNException {
+        GeneralLoop("_DS");
+    }
+
+    //CATEGORY
+
+    public void UpdateCategoryOption() throws IOException, SVNException {
+        GeneralLoop("_CO");
+    }
+
+    public void UpdateCategoryOptionGroup() {
+
+    }
+
+    public void UpdateCategoryOptionGroupSet() {
+
+    }
+
+    public void UpdateCategoryCombination() throws IOException, SVNException {
+        GeneralLoop("_CC");
+    }
+
+    public void UpdateCategoryOptionCombination() throws IOException, SVNException {
+        GeneralLoop("_COC");
+    }
+
+    public void UpdateCategory() throws IOException, ExceptionInSVN {
+        GeneralLoop("_C");
     }
 
 
@@ -287,6 +328,44 @@ public class SVNChanges {
     }
 
 
+    //OTHERS
+    public void UpdateConstant() throws IOException, SVNException {
+        GeneralLoop("_CON");
+    }
+
+    public void UpdateAttribute() throws IOException, SVNException {
+        GeneralLoop("_A");
+    }
+
+    public void UpdateOptionSet() throws IOException, SVNException {
+        GeneralLoop("_OS");
+    }
+
+    public void UpdateLegend() throws IOException, SVNException {
+        GeneralLoop("_L");
+    }
+
+    public void UpdatePredictor() throws IOException, SVNException {
+        GeneralLoop("_P");
+    }
+
+    public void UpdatePushAnalysis() throws IOException, SVNException {
+        GeneralLoop("_PA");
+    }
+
+    public void UpdateExternalMapLayer() throws IOException, SVNException {
+        GeneralLoop("_EML");
+    }
+
+
+
+
+
+
+
+
+
+
     private void CreateDirectory(boolean Different, int i) throws IOException {
         boolean success;
         if (Different) success = (new File(Paths.get(1) + "/" + Sets[i][0])).mkdirs();
@@ -329,12 +408,13 @@ public class SVNChanges {
         return null;
     }
 
-    private void GetAllGroups(URL DHIS2url) throws IOException {
+    private void GetAllGroups(URL DHIS2url) throws IOException, ExceptionInSVN {
         if (Groups == null) Groups = new ArrayList<>();
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
         InputStream in = uc.getInputStream();
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
             JsonObject obj = rdr.readObject();
+            if(Objects.equals(Paths.get(0).substring(Paths.get(0).length() - 1), "y")) Paths.set(0,Paths.get(0).substring(0,Paths.get(0).length()-1)+"ie");
             JsonArray OrgGroups = obj.getJsonArray(Paths.get(0)+"s");
             for (int i = 0; i < OrgGroups.size(); ++i) {
                 JsonObject Group = OrgGroups.getJsonObject(i);
@@ -346,6 +426,9 @@ public class SVNChanges {
                     Groups.add(id);
                 }
             }
+        }
+        catch (java.lang.NullPointerException n) {
+            throw new ExceptionInSVN("ERROR");
         }
     }
 
@@ -392,7 +475,7 @@ public class SVNChanges {
         }
     }
 
-    private void GeneralLoop(String Type) throws IOException, SVNException {
+    private void GeneralLoop(String Type) throws IOException, ExceptionInSVN {
         Groups = null;
         GetPaths(Type, Type);
         CreateDirectory(false, -1);
@@ -400,7 +483,12 @@ public class SVNChanges {
         for (int i = 0; i < Groups.size(); ++i) {
             File Repository = new File(Paths.get(1));
             URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
-            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
+            try {
+                UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
+            } catch (SVNException e) {
+                e.printStackTrace();
+                throw new ExceptionInSVN("ERROR");
+            }
         }
     }
 
@@ -463,11 +551,12 @@ public class SVNChanges {
              JsonReader rdr = Json.createReader(is)) {
             TimeZone.setDefault(new SimpleTimeZone(60 * 60 * 1000, "CET"));
             JsonObject obj = rdr.readObject();
-            JsonArray hola = obj.getJsonArray(Paths.get(0));
-            for (int i = 0; i < hola.size(); ++i) {
-                JsonObject hola2 = hola.getJsonObject(i);
+            JsonArray jsonarray = obj.getJsonArray(Paths.get(0));
+            if (jsonarray == null) return;
+            for (int i = 0; i < jsonarray.size(); ++i) {
+                JsonObject jsonObject = jsonarray.getJsonObject(i);
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
-                Date date2 = formatter.parse(hola2.getString("lastUpdated").replaceAll("Z$", "+0000"));
+                Date date2 = formatter.parse(jsonObject.getString("lastUpdated").replaceAll("Z$", "+0000"));
                 if (lastUpdate == null || lastUpdate.before(date2)) {
                     actualizar = true;
                     break;
@@ -507,6 +596,7 @@ public class SVNChanges {
             json_name = json_name.replace(":","=");
             json_name = json_name.replaceAll("<","LessThan");
             json_name = json_name.replaceAll(">","MoreThan");
+            json_name = json_name.replace("?","(Not secure");
 
             if (lastUpdate == null || lastUpdate.before(date2)) {
                 actualizar = true;
@@ -515,7 +605,7 @@ public class SVNChanges {
             e1.printStackTrace();
         }
 
-        if (!DifferentDirectory) {
+        if (!DifferentDirectory && actualizar) {
             Actualizar(Repository,DHIS2url,json_name);
         }
 
