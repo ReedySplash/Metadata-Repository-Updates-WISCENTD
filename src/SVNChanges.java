@@ -23,25 +23,50 @@ public class SVNChanges {
     private ArrayList<String> Paths;
     private ArrayList<String> SVNCredentials;
     private String[][] Sets;
-    private ArrayList<String> Groups = null;
+    private ArrayList<String> ID = null;
     private boolean creado;
 
-
-    public static void main(String[] argv) throws IOException, SVNException {
+    //This main is for testing the different functions
+    public static void main(String[] argv) throws IOException, SVNException, ExceptionInSVN {
 
         //Set up connection protocols support:
         SVNChanges prueba = new SVNChanges();
+        File UpdateFile = new File("UpdatePath.txt");
+        if (UpdateFile.exists()) {
+            UpdateFile.delete();
+        }
         prueba.CheckoutOrUpdate();
+        prueba.UpdateOrgGroupSetsStructure();
+        prueba.UpdateAllOrgGroups();
+        prueba.UpdateOrgUniteStructure();
+        prueba.UpdateOrgUnitLevel1();
+        prueba.UpdateOrgUnitLevel2();
+        prueba.UpdateOrgUnitLevel3();
+        prueba.UpdateOrgUnitLevel4();
+        prueba.UpdateOrgUnitLevel5();
+        prueba.UpdateOrgUnitLevel6();
+        prueba.UpdateOrgUnitLevel7();
+        prueba.UpdateOrgUnitLevel8();
+        prueba.UpdateDataElements();
+        prueba.UpdateDataElementGroups();
+        prueba.UpdateIndicators();
+        prueba.UpdateIndicatorGroups();
+        prueba.UpdateIndicatorsGroupsSets();
+        prueba.UpdateValidationRule();
+        prueba.UpdateValidationRuleGroups();
+        prueba.UpdateProgramIndicatorGroups();
+        prueba.UpdateProgramIndicators();
+        prueba.UpdateIndicatorTypes();
+        prueba.UpdateDataSet();
+        prueba.UpdateCategory();
+        prueba.UpdateCategoryCombination();
+        prueba.UpdateCategoryOption();
+        prueba.UpdateCategoryOptionCombination();
         prueba.UpdateConstant();
         prueba.UpdateAttribute();
         prueba.UpdateOptionSet();
         prueba.UpdateLegend();
         prueba.UpdateExternalMapLayer();
-
-        /*prueba.UpdateDataElements();
-        prueba.UpdateDataElementGroups();
-        prueba.UpdateDataElementGroupSets();
-*/
         prueba.Commit();
     }
 
@@ -49,17 +74,24 @@ public class SVNChanges {
 
 
     //Org Unit Groups
-    public void UpdateOrgGroupSetsStructure() throws IOException, SVNException {
+    public void UpdateOrgGroupSetsStructure() throws IOException, SVNException, ExceptionInSVN {
+        //For getting Paths, Urls and Names form config file
         GetPaths("_GS", "_GS");
+        //We create a File where we have the local repository
         File Repository = new File(Paths.get(1));
-        URL url_aux = new URL(Paths.get(4) + Paths.get(2));
-        UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/" + Paths.get(0) + ".json");
+        //In this URL we have the DHIS2's url
+        URL DHIS2url = new URL(Paths.get(4) + Paths.get(2));
+        //For update .json files which needs a loop in the json file
+        UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, DHIS2url, "/" + Paths.get(0) + ".json");
     }
 
-    public void UpdateAllOrgGroups() throws IOException, SVNException {
+    public void UpdateAllOrgGroups() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_GS", "_GS");
+        //Get in a Matrix all the Sets and his Groups
         GetAllSets(new URL(Paths.get(4) + Paths.get(2)), Paths.get(0));
+        //For every Set we create a folder and insert the differents groups in Json files
         for (int i = 0; i < Sets.length; ++i) {
+            //If directory don't exists, we create it and commit it later
             CreateDirectory(true, i);
             int j = 1;
             while (Sets[i][j] != null){
@@ -73,25 +105,26 @@ public class SVNChanges {
         Paths.add("Others");
         CreateDirectory(false, 0);
         GetPaths("_G", "_G");
-        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
-        for (int i = 0; i < Groups.size(); ++i) {
+        GetAllID(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < ID.size(); ++i) {
             File Repository = new File(Paths.get(1) + "/Others");
-            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
-            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + ID.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + ID.get(i) + "-",0,true,false);
         }
     }
 
     //Data Elements
-
-    public void UpdateDataElements() throws IOException, SVNException {
+    public void UpdateDataElements() throws IOException, SVNException, ExceptionInSVN {
+        //For update .json when we need ID's
         GeneralLoop("_D");
     }
 
-    public void UpdateDataElementGroups() throws IOException, SVNException {
-        Groups = null;
-        //GetPaths("_DGS", "_DGS");
-        //GetAllSets(new URL(Paths.get(4) + Paths.get(2)), Paths.get(0));
-       /* for (int i = 0; i < Sets.length; ++i) {
+    public void UpdateDataElementGroups() throws IOException, SVNException, ExceptionInSVN {
+        ID = null;
+        /*
+        GetPaths("_DGS", "_DGS");
+        GetAllSets(new URL(Paths.get(4) + Paths.get(2)), Paths.get(0));
+        for (int i = 0; i < Sets.length; ++i) {
             CreateDirectory(true, i);
             int j = 1;
             while (Sets[i][j] != null){
@@ -107,28 +140,27 @@ public class SVNChanges {
         Paths.add("Others");
         CreateDirectory(false, 0);
         GetPaths("_DG", "_DG");
-        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
-        for (int i = 0; i < Groups.size(); ++i) {
+        GetAllID(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < ID.size(); ++i) {
             File Repository = new File(Paths.get(1) + "/Others");
-            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
-            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + ID.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + ID.get(i) + "-",0,true,false);
         }
     }
 
-    public void UpdateDataElementGroupSets() throws IOException, SVNException {
+    public void UpdateDataElementGroupSets() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_DGS", "_DGS");
         File Repository = new File(Paths.get(1));
         URL url_aux = new URL(Paths.get(4) + Paths.get(2));
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3), Repository, url_aux, "/" + Paths.get(0) + ".json");
     }
 
-
     //Indicators
-    public void UpdateIndicators() throws IOException, SVNException {
+    public void UpdateIndicators() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_I");
     }
 
-    public void UpdateIndicatorGroups() throws IOException, SVNException {
+    public void UpdateIndicatorGroups() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_IGS", "_IGS");
         GetAllSets(new URL(Paths.get(4) + Paths.get(2)), Paths.get(0));
         GetPaths("_IG", "_IG");
@@ -148,15 +180,15 @@ public class SVNChanges {
         Paths.add("Others");
         CreateDirectory(false, 0);
         GetPaths("_IG", "_IG");
-        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
-        for (int i = 0; i < Groups.size(); ++i) {
+        GetAllID(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < ID.size(); ++i) {
             File Repository = new File(Paths.get(1) + "/Others");
-            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
-            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + ID.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3) + "/Others",Repository,url_aux,"/" + ID.get(i) + "-",0,true,false);
         }
     }
 
-    public void UpdateIndicatorsGroupsSets() throws IOException, SVNException {
+    public void UpdateIndicatorsGroupsSets() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_IGS", "_IGS");
         CreateDirectory(false,-1);
         File Repository = new File(Paths.get(1));
@@ -166,11 +198,11 @@ public class SVNChanges {
 
 
     //Validations
-    public void UpdateValidationRule() throws IOException, SVNException {
+    public void UpdateValidationRule() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_V");
     }
 
-    public void UpdateValidationRuleGroups() throws IOException, SVNException {
+    public void UpdateValidationRuleGroups() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_VG");
     }
 
@@ -180,29 +212,29 @@ public class SVNChanges {
 
     //ProgramIndicatorGroups
 
-    public void UpdateProgramIndicatorGroups() throws IOException, SVNException {
+    public void UpdateProgramIndicatorGroups() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_PIG");
     }
 
-    public void UpdateProgramIndicators() throws IOException, SVNException {
+    public void UpdateProgramIndicators() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_PI");
     }
 
 
     //IndicatorTypes
-    public void UpdateIndicatorTypes() throws IOException, SVNException {
+    public void UpdateIndicatorTypes() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_IT");
     }
 
 
     //Data Set
-    public void UpdateDataSet() throws IOException, SVNException {
+    public void UpdateDataSet() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_DS");
     }
 
     //CATEGORY
 
-    public void UpdateCategoryOption() throws IOException, SVNException {
+    public void UpdateCategoryOption() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_CO");
     }
 
@@ -214,11 +246,11 @@ public class SVNChanges {
 
     }
 
-    public void UpdateCategoryCombination() throws IOException, SVNException {
+    public void UpdateCategoryCombination() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_CC");
     }
 
-    public void UpdateCategoryOptionCombination() throws IOException, SVNException {
+    public void UpdateCategoryOptionCombination() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_COC");
     }
 
@@ -229,7 +261,7 @@ public class SVNChanges {
 
 
     //UPDATE ORG_UNIT_LVLs STRUCTURE
-    public void UpdateOrgUniteStructure() throws IOException, SVNException, FileNotFoundException {
+    public void UpdateOrgUniteStructure() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         File Repository = new File(Paths.get(1));
         URL url_aux = new URL(Paths.get(4) + Paths.get(2));
@@ -239,7 +271,7 @@ public class SVNChanges {
 
 
     //UPDATE FOR ORG_UNIT_LVLs
-    public void UpdateOrgUnitLevel1() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel1() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_1", "_FA");
@@ -250,7 +282,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3) + "/" + Paths.get(6), Repository, url_aux, "/1-who-global.json");
     }
 
-    public void UpdateOrgUnitLevel2() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel2() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_2", "_FA");
@@ -261,7 +293,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3) + "/" + Paths.get(6), Repository, url_aux, "/2-who-regions.json");
     }
 
-    public void UpdateOrgUnitLevel3() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel3() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_3", "_FA");
@@ -272,7 +304,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3) + "/" + Paths.get(6), Repository, url_aux, "/3-who-member-states.json");
     }
 
-    public void UpdateOrgUnitLevel4() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel4() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_4", "_FA");
@@ -283,7 +315,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3) + "/" + Paths.get(6), Repository, url_aux, "/4-level1.json");
     }
 
-    public void UpdateOrgUnitLevel5() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel5() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_5", "_FA");
@@ -294,7 +326,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3) + "/" + Paths.get(6), Repository, url_aux, "/5-level2.json");
     }
 
-    public void UpdateOrgUnitLevel6() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel6() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_6", "_FA");
@@ -305,7 +337,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3) + "/" + Paths.get(6), Repository, url_aux, "/6-level3.json");
     }
 
-    public void UpdateOrgUnitLevel7() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel7() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_7", "_FA");
@@ -316,7 +348,7 @@ public class SVNChanges {
         UpdateGeneralSVN(Paths.get(5) + Paths.get(3) + "/" + Paths.get(6), Repository, url_aux, "/7-level4.json");
     }
 
-    public void UpdateOrgUnitLevel8() throws IOException, SVNException {
+    public void UpdateOrgUnitLevel8() throws IOException, SVNException, ExceptionInSVN {
         GetPaths("_S", "_S");
         URL PathOrgStructure = new URL(Paths.get(4) + Paths.get(2));
         GetPaths("_8", "_FA");
@@ -329,31 +361,31 @@ public class SVNChanges {
 
 
     //OTHERS
-    public void UpdateConstant() throws IOException, SVNException {
+    public void UpdateConstant() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_CON");
     }
 
-    public void UpdateAttribute() throws IOException, SVNException {
+    public void UpdateAttribute() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_A");
     }
 
-    public void UpdateOptionSet() throws IOException, SVNException {
+    public void UpdateOptionSet() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_OS");
     }
 
-    public void UpdateLegend() throws IOException, SVNException {
+    public void UpdateLegend() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_L");
     }
 
-    public void UpdatePredictor() throws IOException, SVNException {
+    public void UpdatePredictor() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_P");
     }
 
-    public void UpdatePushAnalysis() throws IOException, SVNException {
+    public void UpdatePushAnalysis() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_PA");
     }
 
-    public void UpdateExternalMapLayer() throws IOException, SVNException {
+    public void UpdateExternalMapLayer() throws IOException, SVNException, ExceptionInSVN {
         GeneralLoop("_EML");
     }
 
@@ -365,13 +397,16 @@ public class SVNChanges {
 
 
 
-
-    private void CreateDirectory(boolean Different, int i) throws IOException {
+    //Make the directory if it's necessary
+    private void CreateDirectory(boolean Different, int i) throws ExceptionInSVN {
         boolean success;
+        //Different == true when we have Matrix with all Sets and Groups
         if (Different) success = (new File(Paths.get(1) + "/" + Sets[i][0])).mkdirs();
+            //i == -1 -> If we have complete path in Paths.get(1)
         else if (i == -1 && !Different) success = new File(Paths.get(1)).mkdirs();
         else success = new File(Paths.get(1) +"/"+ Paths.get(6)).mkdirs();
         if (success) {
+            //if directory is created, we need to commit it later, creado == true
             creado = true;
             BufferedWriter out = null;
             try {
@@ -383,20 +418,29 @@ public class SVNChanges {
                 out.newLine();
             } catch (IOException e) {
                 System.err.println("Error: " + e.getMessage());
+                throw new ExceptionInSVN("ERROR");
             } finally {
                 if (out != null) {
-                    out.close();
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        throw new ExceptionInSVN("ERROR");
+                    }
                 }
             }
         }
     }
 
-    private String GetOrgUnitLevelName(URL DHIS2url, int Level) throws IOException {
+
+    //Get the name of the level that we need
+    private String GetOrgUnitLevelName(URL DHIS2url, int Level) throws IOException, ExceptionInSVN {
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
         InputStream in = uc.getInputStream();
         boolean actualizar = false;
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
             JsonObject obj = rdr.readObject();
+
             JsonArray OrgLevels = obj.getJsonArray("organisationUnitLevels");
             for (int i = 0; i < OrgLevels.size(); ++i) {
                 JsonObject level = OrgLevels.getJsonObject(i);
@@ -408,8 +452,9 @@ public class SVNChanges {
         return null;
     }
 
-    private void GetAllGroups(URL DHIS2url) throws IOException, ExceptionInSVN {
-        if (Groups == null) Groups = new ArrayList<>();
+    //To Get all IDs or groups to update them into repostory
+    private void GetAllID(URL DHIS2url) throws IOException, ExceptionInSVN {
+        if (ID == null) ID = new ArrayList<>();
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
         InputStream in = uc.getInputStream();
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
@@ -417,13 +462,13 @@ public class SVNChanges {
             if(Objects.equals(Paths.get(0).substring(Paths.get(0).length() - 1), "y")) Paths.set(0,Paths.get(0).substring(0,Paths.get(0).length()-1)+"ie");
             JsonArray OrgGroups = obj.getJsonArray(Paths.get(0)+"s");
             for (int i = 0; i < OrgGroups.size(); ++i) {
-                JsonObject Group = OrgGroups.getJsonObject(i);
-                String id = Group.getString("id");
-                if (Groups != null && Groups.contains(id)) {
-                    Groups.remove(id);
+                JsonObject GroupOrID = OrgGroups.getJsonObject(i);
+                String id = GroupOrID.getString("id");
+                if (ID != null && ID.contains(id)) {
+                    ID.remove(id);
                 }
                 else {
-                    Groups.add(id);
+                    ID.add(id);
                 }
             }
         }
@@ -432,6 +477,7 @@ public class SVNChanges {
         }
     }
 
+    //To get all Paths, urls and names that we need to update Repository from config file
     private void GetPaths(String Type, String Type2) throws IOException {
         //Initialize Properties file
         Properties prop = new Properties();
@@ -454,10 +500,12 @@ public class SVNChanges {
         this.Paths.add(5, prop.getProperty("BaseUrlSvnRe"));
     }
 
-    private void GetAllSets(URL DHIS2url, String name) throws IOException {
-        Groups = new ArrayList<>();
+    //Put all sets and his groups in a matrix and put groups in a ArrayList
+    private void GetAllSets(URL DHIS2url, String name) throws IOException, ExceptionInSVN {
+        ID = new ArrayList<>();
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
         InputStream in = uc.getInputStream();
+
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
             JsonObject obj = rdr.readObject();
             JsonArray OrgGroups = obj.getJsonArray(name);
@@ -469,45 +517,48 @@ public class SVNChanges {
                 for (int j = 0; j < SetsID.size(); ++j) {
                     JsonObject id = SetsID.getJsonObject(j);
                     Sets[i][j + 1] = id.getString("id");
-                    Groups.add(id.getString("id"));
+                    ID.add(id.getString("id"));
                 }
             }
         }
     }
 
+    //For update a repository when we need to get id's.
     private void GeneralLoop(String Type) throws IOException, ExceptionInSVN {
-        Groups = null;
+        ID = null;
         GetPaths(Type, Type);
         CreateDirectory(false, -1);
-        GetAllGroups(new URL(Paths.get(4) + Paths.get(2)));
-        for (int i = 0; i < Groups.size(); ++i) {
+        GetAllID(new URL(Paths.get(4) + Paths.get(2)));
+        for (int i = 0; i < ID.size(); ++i) {
             File Repository = new File(Paths.get(1));
-            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + Groups.get(i));
-            try {
-                UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + Groups.get(i) + "-",0,true,false);
-            } catch (SVNException e) {
-                e.printStackTrace();
-                throw new ExceptionInSVN("ERROR");
-            }
+            URL url_aux = new URL(Paths.get(4) + Paths.get(2) + "/" + ID.get(i));
+            UpdateGeneralSVN_WithoutForinJson(Paths.get(5) + Paths.get(3),Repository,url_aux,"/" + ID.get(i) + "-",0,true,false);
         }
     }
 
 
 
-    private URLConnection initConnectionToDHIS2(URL DHIS2url) throws IOException {
-        URLConnection uc = DHIS2url.openConnection();
+    //Intialize connection to DHIS2
+    private URLConnection initConnectionToDHIS2(URL DHIS2url) throws ExceptionInSVN {
+        //We open the connection with DHIS2 and set the credentials to get in.
+        URLConnection uc = null;
+        try {
+            uc = DHIS2url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new ExceptionInSVN("Error in connection");
+        }
         String userpass = "vmurciano" + ":" + "Vict0r2017#";
         String basicAuth = "Basic " + Base64.encode(userpass.getBytes());
         uc.setRequestProperty("Authorization", basicAuth);
         return uc;
     }
 
+    //Intialize connection to SVN
     private SVNRepository initConnectionToSVN(String SVN) {
+        //We open the connection to SVN and set the credentials to update it if it's necessary
         SVNRepositoryFactoryImpl.setup();
         SVNRepository repository = null;
-        long startRevision = 0;
-        long endRevision = -1; //HEAD (the latest) revision
-
         try {
             SVNRepositoryFactoryImpl.setup();
             repository = SVNRepositoryFactory.create(SVNURL.parseURIEncoded(SVN));
@@ -517,12 +568,13 @@ public class SVNChanges {
             e.printStackTrace();
             System.exit(1);
         }
-
         return repository;
     }
 
+    //Before try to update the repository we need to checkout if not exists or update if exists local repository
     private void CheckoutOrUpdate() throws IOException, SVNException {
         GetPaths("_GE", "_GE");
+        //We initialize connection to SVN with SVN url
         SVNRepository repository = initConnectionToSVN(Paths.get(5) + Paths.get(3));
         SVNClientManager ourClientManager = SVNClientManager.newInstance(null, repository.getAuthenticationManager());
         SVNUpdateClient updateClient = ourClientManager.getUpdateClient();
@@ -535,7 +587,8 @@ public class SVNChanges {
         }
     }
 
-    private void UpdateGeneralSVN(String SVN, File Repository, URL DHIS2url, String json_name) throws SVNException, IOException {
+    //Update repository, this function it's useful if we need to do a search with a loop inside Json file in DHIS2url
+    private void UpdateGeneralSVN(String SVN, File Repository, URL DHIS2url, String json_name) throws ExceptionInSVN, IOException {
 
         //CONEXION A SVN
         SVNRepository repository = initConnectionToSVN(SVN);
@@ -543,8 +596,6 @@ public class SVNChanges {
 
         //PARTE DE JSON
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
-        String userpass = "vmurciano" + ":" + "Vict0r2017#";
-        String basicAuth = "Basic " + Base64.encode(userpass.getBytes());
         InputStream in = uc.getInputStream();
         boolean actualizar = false;
         try (InputStream is = in;
@@ -572,17 +623,23 @@ public class SVNChanges {
         }
     }
 
-    private void UpdateGeneralSVN_WithoutForinJson(String SVN, File Repository, URL DHIS2url, String json_name, int i, boolean others, boolean DifferentDirectory) throws SVNException, IOException {
+
+    //Update repository, this function it's useful if we need to do a search without a loop inside Json file in DHIS2url
+    private void UpdateGeneralSVN_WithoutForinJson(String SVN, File Repository, URL DHIS2url, String json_name, int i, boolean others, boolean DifferentDirectory) throws ExceptionInSVN, ExceptionInSVN, IOException {
 
         //CONEXION A SVN
         SVNRepository repository = initConnectionToSVN(SVN);
         Date lastUpdate = GetLastUpdateDate_SVN(SVN,Repository,repository);
-        //PARTE DE JSON
 
-        String userpass = "vmurciano" + ":" + "Vict0r2017#";
-        String basicAuth = "Basic " + Base64.encode(userpass.getBytes());
+        //PARTE DE JSON
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
-        InputStream in = uc.getInputStream();
+        InputStream in = null;
+        try {
+            in = uc.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
 
         boolean actualizar = false;
         try (InputStream is = in; JsonReader rdr = Json.createReader(is)) {
@@ -596,13 +653,14 @@ public class SVNChanges {
             json_name = json_name.replace(":","=");
             json_name = json_name.replaceAll("<","LessThan");
             json_name = json_name.replaceAll(">","MoreThan");
-            json_name = json_name.replace("?","(Not secure");
+            json_name = json_name.replace("?","(Not secure)");
 
             if (lastUpdate == null || lastUpdate.before(date2)) {
                 actualizar = true;
             }
-        } catch (ParseException e1) {
+        } catch (ParseException | IOException e1) {
             e1.printStackTrace();
+            throw new ExceptionInSVN("ERROR");
         }
 
         if (!DifferentDirectory && actualizar) {
@@ -624,14 +682,20 @@ public class SVNChanges {
         System.out.println(lastUpdate);
     }
 
-    private Date GetLastUpdateDate_SVN(String SVN, File Repository, SVNRepository repository) throws SVNException {
+    //Return the date of the last update in a directoy in the repository
+    private Date GetLastUpdateDate_SVN(String SVN, File Repository, SVNRepository repository) throws ExceptionInSVN {
         long startRevision = 0;
         long endRevision = -1; //HEAD (the latest) revision
         Date lastUpdate = new Date();
         Collection logEntries = null;
 
         if(Repository.exists() && !creado) {
-            logEntries = repository.log(new String[]{""}, null, startRevision, endRevision, true, true);
+            try {
+                logEntries = repository.log(new String[]{""}, null, startRevision, endRevision, true, true);
+            } catch (SVNException e) {
+                e.printStackTrace();
+                throw new ExceptionInSVN("Error in SVN");
+            }
             for (Iterator entries = logEntries.iterator(); entries.hasNext(); ) {
                 SVNLogEntry logEntry = (SVNLogEntry) entries.next();
                 lastUpdate = logEntry.getDate();
@@ -641,7 +705,8 @@ public class SVNChanges {
         return null;
     }
 
-    private void Actualizar(File Repository, URL DHIS2url, String json_name) throws IOException {
+    //Do a update of a file
+    private void Actualizar(File Repository, URL DHIS2url, String json_name) throws IOException, ExceptionInSVN {
         URLConnection uc = initConnectionToDHIS2(DHIS2url);
         InputStream in2 = uc.getInputStream();
         String Repo_aux = Repository.toString();
@@ -667,6 +732,7 @@ public class SVNChanges {
         }
     }
 
+    //Commit all file updates in a single revision.
     public void Commit() throws SVNException, IOException {
         GetPaths("_GE", "_GE");
 

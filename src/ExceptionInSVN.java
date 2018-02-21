@@ -4,14 +4,15 @@ import org.tmatesoft.svn.core.SVNException;
 
 import java.io.File;
 
-public class ExceptionInSVN extends SVNException {
+public class ExceptionInSVN extends Exception {
 
     public ExceptionInSVN(String s) {
-        super(SVNErrorMessage.create(SVNErrorCode.CANCELLED,s));
+        super(s);
         File UpdateFile = new File("UpdatePath.txt");
         if (UpdateFile.exists()) {
             UpdateFile.delete();
         }
+
 
     }
 }
